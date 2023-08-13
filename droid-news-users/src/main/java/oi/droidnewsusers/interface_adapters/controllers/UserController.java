@@ -1,6 +1,7 @@
 package oi.droidnewsusers.interface_adapters.controllers;
 
 import oi.droidnewsusers.interface_adapters.dtos.UserInDTO;
+import oi.droidnewsusers.interface_adapters.dtos.UserOutDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,17 +14,17 @@ public interface UserController {
 
   interface UserControllerSalvar {
     @PostMapping
-    ResponseEntity<Object> salvar(UserInDTO userInDTO);
+    ResponseEntity<UserOutDTO> salvar(UserInDTO userInDTO);
   }
 
   interface UserControllerBuscarPorId {
     @GetMapping(path = "/{id}")
-    ResponseEntity<Object> buscarPorId(UUID id);
+    ResponseEntity<UserOutDTO> buscarPorId(UUID id);
   }
 
   interface UserControllerListar {
     @GetMapping
-    ResponseEntity<List<Object>> listar();
+    ResponseEntity<List<UserOutDTO>> listar();
   }
 
   interface UserControllerDeleteById {

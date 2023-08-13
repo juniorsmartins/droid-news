@@ -5,6 +5,7 @@ import oi.droidnewsusers.application_business_rules.use_cases.UserServiceSalvar;
 import oi.droidnewsusers.interface_adapters.converters.ConverterDTOInToEntity;
 import oi.droidnewsusers.interface_adapters.converters.ConverterEntityToDTOOut;
 import oi.droidnewsusers.interface_adapters.dtos.UserInDTO;
+import oi.droidnewsusers.interface_adapters.dtos.UserOutDTO;
 import oi.droidnewsusers.interface_adapters.gateways.UserGatewaySalvar;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +38,7 @@ public final class UserControllerSalvarImpl implements UserController.UserContro
   }
 
   @Override
-  public ResponseEntity<Object> salvar(@RequestBody @Valid UserInDTO userInDTO) {
+  public ResponseEntity<UserOutDTO> salvar(@RequestBody @Valid UserInDTO userInDTO) {
 
     var dto = Optional.of(userInDTO)
       .map(this.converterDTOInToEntity::converterIn)
