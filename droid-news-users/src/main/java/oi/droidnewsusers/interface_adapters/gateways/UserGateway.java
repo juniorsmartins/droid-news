@@ -13,5 +13,7 @@ public interface UserGateway {
   UserEntity buscarPorId(UUID id);
 
   List<UserEntity> listar();
+
+  void deleteById(final UUID id);
 }
 

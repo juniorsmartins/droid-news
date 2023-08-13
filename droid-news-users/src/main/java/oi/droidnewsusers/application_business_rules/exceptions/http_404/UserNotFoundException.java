@@ -4,7 +4,7 @@ import oi.droidnewsusers.application_business_rules.exceptions.MensagemPadrao;
 
 import java.util.UUID;
 
-public final class UserNotFoundException extends RecursoNaoEncontradoException {
+public final class UserNotFoundException extends ResourceNotFoundException {
 
   private static final long serialVersionUID = 1L;
 

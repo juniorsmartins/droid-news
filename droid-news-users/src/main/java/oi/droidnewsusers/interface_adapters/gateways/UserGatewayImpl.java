@@ -1,10 +1,13 @@
 package oi.droidnewsusers.interface_adapters.gateways;
 
+import oi.droidnewsusers.application_business_rules.exceptions.http_404.UserNotFoundException;
+import oi.droidnewsusers.application_business_rules.exceptions.http_409.NonDeletableResourceException;
 import oi.droidnewsusers.enterprise_business_rules.entities.UserEntity;
 import oi.droidnewsusers.interface_adapters.converters.ConverterDAOToEntity;
 import oi.droidnewsusers.interface_adapters.converters.ConverterEntityToDAO;
 import oi.droidnewsusers.interface_adapters.converters.ConverterPageEntitiesToPageDAOs;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -43,14 +46,16 @@ public class UserGatewayImpl implements UserGateway {
       .orElseThrow();
   }
 
+  @Transactional
   @Override
   public UserEntity buscarPorId(final UUID id) {
 
     return this.userJpa.findById(id)
       .map(this.converterDAOToEntity::converter)
-      .orElseThrow(() -> new );
+      .orElseThrow(() -> new UserNotFoundException(id));
   }
 
+  @Transactional
   @Override
   public List<UserEntity> listar() {
 
@@ -58,6 +63,18 @@ public class UserGatewayImpl implements UserGateway {
       .stream()
       .map(this.converterDAOToEntity::converter)
       .toList();
+  }
+
+  @Transactional(isolation = Isolation.SERIALIZABLE)
+  @Override
+  public void deleteById(UUID id) {
+
+    this.userJpa.findById(id)
+      .map(entity -> {
+        this.userJpa.delete(entity);
+        return true;
+      })
+      .orElseThrow(() -> new NonDeletableResourceException(id));
   }
 }
 
