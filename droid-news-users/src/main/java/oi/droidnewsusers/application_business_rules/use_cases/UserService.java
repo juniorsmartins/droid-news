@@ -1,12 +1,11 @@
-package oi.droidnewsusers.interface_adapters.gateways;
+package oi.droidnewsusers.application_business_rules.use_cases;
 
 import oi.droidnewsusers.enterprise_business_rules.entities.UserEntity;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
-public interface UserGateway {
+public interface UserService {
 
   UserEntity salvar(UserEntity userEntity);
 

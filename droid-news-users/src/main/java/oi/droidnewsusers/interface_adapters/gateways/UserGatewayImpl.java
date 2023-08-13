@@ -7,7 +7,9 @@ import oi.droidnewsusers.interface_adapters.converters.ConverterPageEntitiesToPa
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class UserGatewayImpl implements UserGateway {
@@ -39,6 +41,23 @@ public class UserGatewayImpl implements UserGateway {
       .map(this.userJpa::save)
       .map(this.converterDAOToEntity::converter)
       .orElseThrow();
+  }
+
+  @Override
+  public UserEntity buscarPorId(final UUID id) {
+
+    return this.userJpa.findById(id)
+      .map(this.converterDAOToEntity::converter)
+      .orElseThrow(() -> new );
+  }
+
+  @Override
+  public List<UserEntity> listar() {
+
+    return this.userJpa.findAll()
+      .stream()
+      .map(this.converterDAOToEntity::converter)
+      .toList();
   }
 }
 
