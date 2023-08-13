@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class UserServiceListarImpl implements UserServiceListar {
 
-  @Transactional
+  @Transactional(readOnly = true)
   @Override
   public List<UserEntity> listar(final UserGatewayListar userGateway) {
 

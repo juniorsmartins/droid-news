@@ -10,7 +10,7 @@ import java.util.UUID;
 @Service
 public class UserServiceBuscarPorIdImpl implements UserServiceBuscarPorId {
 
-  @Transactional
+  @Transactional(readOnly = true)
   @Override
   public UserEntity buscarPorId(final UserGatewayBuscarPorId userGateway, final UUID id) {
 
