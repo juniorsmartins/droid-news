@@ -10,7 +10,7 @@ import java.util.UUID;
 @Repository
 public class UserGatewayDeletaByIdImpl implements UserGatewayDeleteById {
 
-  private UserJpa userJpa;
+  private final UserJpa userJpa;
 
   public UserGatewayDeletaByIdImpl(UserJpa userJpa) {
     this.userJpa = userJpa;

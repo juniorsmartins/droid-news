@@ -1,24 +1,33 @@
 package oi.droidnewsusers.interface_adapters.dtos;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.io.Serializable;
 import java.util.UUID;
 
-public interface UserOutDTO {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode(of = "id")
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public final class UserOutDTO implements Serializable {
 
+  private static final long serialVersionUID = 1L;
 
-  void setId(UUID id);
+  private UUID id;
 
-  UUID getId();
+  private String fullName;
 
-  void setFullName(String fullName);
+  private String email;
 
-  String getFullName();
-
-  void setEmail(String email);
-
-  String getEmail();
-
-  void setPassword(String password);
-
-  String getPassword();
+  private String password;
 }
 

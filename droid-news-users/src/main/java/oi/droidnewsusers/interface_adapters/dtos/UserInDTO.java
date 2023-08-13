@@ -1,23 +1,31 @@
 package oi.droidnewsusers.interface_adapters.dtos;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.io.Serializable;
 import java.util.UUID;
 
-public interface UserInDTO {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode(of = "id")
+public final class UserInDTO implements Serializable {
 
-  void setId(UUID id);
+  private static final long serialVersionUID = 1L;
 
-  UUID getId();
+  private UUID id;
 
-  void setFullName(String fullName);
+  private String fullName;
 
-  String getFullName();
+  private String email;
 
-  void setEmail(String email);
-
-  String getEmail();
-
-  void setPassword(String password);
-
-  String getPassword();
+  private String password;
 }
 

@@ -5,6 +5,6 @@ import oi.droidnewsusers.interface_adapters.daos.UserDAO;
 
 public interface ConverterDAOToEntity {
 
-  UserEntity converter(UserDAO userDAO);
+  UserEntity converterOut(UserDAO userDAO);
 }
 

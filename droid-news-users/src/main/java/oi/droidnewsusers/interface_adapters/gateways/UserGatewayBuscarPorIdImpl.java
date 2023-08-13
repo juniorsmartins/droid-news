@@ -11,12 +11,12 @@ import java.util.UUID;
 @Repository
 public class UserGatewayBuscarPorIdImpl implements UserGatewayBuscarPorId {
 
-  private UserJpa userJpa;
+  private final UserJpa userJpa;
 
-  private ConverterDAOToEntity converterDAOToEntity;
+  private final ConverterDAOToEntity converterDAOToEntity;
 
   public UserGatewayBuscarPorIdImpl(UserJpa userJpa,
-                         ConverterDAOToEntity converterDAOToEntity) {
+                                    ConverterDAOToEntity converterDAOToEntity) {
     this.userJpa = userJpa;
     this.converterDAOToEntity = converterDAOToEntity;
   }
@@ -26,7 +26,7 @@ public class UserGatewayBuscarPorIdImpl implements UserGatewayBuscarPorId {
   public UserEntity buscarPorId(final UUID id) {
 
     return this.userJpa.findById(id)
-      .map(this.converterDAOToEntity::converter)
+      .map(this.converterDAOToEntity::converterOut)
       .orElseThrow(() -> new UserNotFoundException(id));
   }
 }

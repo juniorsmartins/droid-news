@@ -2,7 +2,6 @@ package oi.droidnewsusers.interface_adapters.gateways;
 
 import oi.droidnewsusers.enterprise_business_rules.entities.UserEntity;
 import oi.droidnewsusers.interface_adapters.converters.ConverterDAOToEntity;
-import oi.droidnewsusers.interface_adapters.converters.ConverterEntityToDAO;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,12 +10,12 @@ import java.util.List;
 @Repository
 public class UserGatewayListarImpl implements UserGatewayListar {
 
-  private UserJpa userJpa;
+  private final UserJpa userJpa;
 
-  private ConverterDAOToEntity converterDAOToEntity;
+  private final ConverterDAOToEntity converterDAOToEntity;
 
   public UserGatewayListarImpl(UserJpa userJpa,
-                               ConverterEntityToDAO converterEntityToDAO) {
+                               ConverterDAOToEntity converterDAOToEntity) {
     this.userJpa = userJpa;
     this.converterDAOToEntity = converterDAOToEntity;
   }
@@ -27,7 +26,7 @@ public class UserGatewayListarImpl implements UserGatewayListar {
 
     return this.userJpa.findAll()
       .stream()
-      .map(this.converterDAOToEntity::converter)
+      .map(this.converterDAOToEntity::converterOut)
       .toList();
   }
 }

@@ -11,11 +11,11 @@ import java.util.Optional;
 @Repository
 public class UserGatewaySalvarImpl implements UserGatewaySalvar {
 
-  private UserJpa userJpa;
+  private final UserJpa userJpa;
 
-  private ConverterEntityToDAO converterEntityToDAO;
+  private final ConverterEntityToDAO converterEntityToDAO;
 
-  private ConverterDAOToEntity converterDAOToEntity;
+  private final ConverterDAOToEntity converterDAOToEntity;
 
   public UserGatewaySalvarImpl(UserJpa userJpa,
                                ConverterEntityToDAO converterEntityToDAO,
@@ -30,9 +30,9 @@ public class UserGatewaySalvarImpl implements UserGatewaySalvar {
   public UserEntity salvar(UserEntity userEntity) {
 
     return Optional.of(userEntity)
-      .map(this.converterEntityToDAO::converter)
+      .map(this.converterEntityToDAO::converterOut)
       .map(this.userJpa::save)
-      .map(this.converterDAOToEntity::converter)
+      .map(this.converterDAOToEntity::converterOut)
       .orElseThrow();
   }
 }
