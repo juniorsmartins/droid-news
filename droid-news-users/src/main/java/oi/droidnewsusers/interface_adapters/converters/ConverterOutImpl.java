@@ -12,24 +12,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public final class ConverterOutImpl implements converterEntityToDAO, converterDAOToEntity, converterPageEntitiesToPageDAOs {
+public final class ConverterOutImpl implements ConverterEntityToDAO, ConverterDAOToEntity, ConverterPageEntitiesToPageDAOs {
 
   @Override
-  public UserDAO converterEntityToDAO(UserEntity userEntity) {
+  public UserDAO converter(UserEntity userEntity) {
     var userDao = new UserDAO();
     BeanUtils.copyProperties(userEntity, userDao);
     return userDao;
   }
 
   @Override
-  public UserEntity converterDAOToEntity(UserDAO userDAO) {
+  public UserEntity converter(UserDAO userDAO) {
     var userEntity = new UserEntity();
     BeanUtils.copyProperties(userDAO, userEntity);
     return userEntity;
   }
 
   @Override
-  public Page<UserEntity> converterPageDAOsToPageEntities(Page<UserDAO> daos) {
+  public Page<UserEntity> converterPage(Page<UserDAO> daos) {
     List<UserEntity> entities = new ArrayList<>();
 
     daos.forEach(dao -> {
