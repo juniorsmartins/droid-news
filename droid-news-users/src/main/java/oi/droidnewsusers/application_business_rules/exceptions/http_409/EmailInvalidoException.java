@@ -7,7 +7,7 @@ public final class EmailInvalidoException extends RegraDeNegocioVioladaException
   public static final long serialVersionUID = 1L;
 
   public EmailInvalidoException(String email) {
-    super(String.format(MensagemPadrao.EMAIL_INVALIDO, email));
+    super(String.format(MensagemPadrao.INVALID_EMAIL, email));
   }
 }
 

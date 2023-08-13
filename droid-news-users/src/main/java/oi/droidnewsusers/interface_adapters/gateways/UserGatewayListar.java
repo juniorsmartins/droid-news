@@ -2,8 +2,10 @@ package oi.droidnewsusers.interface_adapters.gateways;
 
 import oi.droidnewsusers.enterprise_business_rules.entities.UserEntity;
 
-public interface UserGateway {
+import java.util.List;
 
-  UserEntity salvar(UserEntity userEntity);
+public interface UserGatewayListar {
+
+  List<UserEntity> listar();
 }
 
