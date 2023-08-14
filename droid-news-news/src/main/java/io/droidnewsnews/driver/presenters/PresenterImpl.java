@@ -4,12 +4,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.net.URI;
+import java.util.UUID;
 
 @Component
-public class PresenterImpl implements PostPresenter, PutPresenter, GetPresenter, DeletePresenter {
+public class PresenterImpl implements Presenter {
 
   @Override
-  public ResponseEntity<Object> post(final Long id, final Object dto) {
+  public ResponseEntity<Object> post(final UUID id, final Object dto) {
 
     return ResponseEntity
       .created(URI.create("/api/v1/clientes/" + id))
