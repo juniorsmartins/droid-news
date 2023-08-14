@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.UUID;
 
-public interface NewsService {
+public interface NewsInputPort {
 
   NewsEntity create(NewsEntity newsEntity);
 

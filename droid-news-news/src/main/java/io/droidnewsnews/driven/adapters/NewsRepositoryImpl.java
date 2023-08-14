@@ -1,16 +1,19 @@
-package io.droidnewsnews.core.application.use_cases;
+package io.droidnewsnews.driven.adapters;
 
-import io.droidnewsnews.core.application.ports.NewsInputPort;
+import io.droidnewsnews.core.application.ports.NewsOutputPort;
 import io.droidnewsnews.core.domain.NewsFilter;
 import io.droidnewsnews.core.domain.entities.NewsEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
-@Service
-public class NewsServiceImpl implements NewsInputPort {
+public class NewsRepositoryImpl implements NewsOutputPort {
+
+  @Autowired
+  private NewsJpa newsJpa;
 
   @Override
   public NewsEntity create(NewsEntity newsEntity) {
@@ -28,7 +31,12 @@ public class NewsServiceImpl implements NewsInputPort {
   }
 
   @Override
-  public void delete(UUID id) {
+  public Optional<NewsEntity> consult(UUID id) {
+    return Optional.empty();
+  }
+
+  @Override
+  public void delete(NewsEntity newsEntity) {
 
   }
 }
