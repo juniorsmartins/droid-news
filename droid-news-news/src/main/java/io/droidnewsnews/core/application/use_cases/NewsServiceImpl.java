@@ -1,9 +1,11 @@
 package io.droidnewsnews.core.application.use_cases;
 
+import io.droidnewsnews.core.application.exceptions.http_404.NewsNotFoundException;
 import io.droidnewsnews.core.application.ports.NewsInputPort;
 import io.droidnewsnews.core.application.ports.NewsOutputPort;
 import io.droidnewsnews.core.domain.NewsFilter;
 import io.droidnewsnews.core.domain.entities.NewsEntity;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,13 +24,21 @@ public class NewsServiceImpl implements NewsInputPort {
   public NewsEntity create(final NewsEntity newsEntity) {
 
     return Optional.of(newsEntity)
-      .map(this.outputPort::create)
+      .map(this.outputPort::save)
       .orElseThrow();
   }
 
   @Override
-  public NewsEntity update(NewsEntity newsEntity) {
-    return null;
+  public NewsEntity update(final NewsEntity newsEntity) {
+
+    return Optional.of(newsEntity)
+      .map(entity -> {
+        var register = this.consultNews(entity);
+        BeanUtils.copyProperties(entity, register);
+        return register;
+      })
+      .map(this.outputPort::save)
+      .orElseThrow();
   }
 
   @Override
@@ -39,6 +49,11 @@ public class NewsServiceImpl implements NewsInputPort {
   @Override
   public void delete(UUID id) {
 
+  }
+
+  private NewsEntity consultNews(NewsEntity entity) {
+    return this.outputPort.consult(entity.getId())
+      .orElseThrow(() -> new NewsNotFoundException(entity.getId()));
   }
 }
 

@@ -10,9 +10,7 @@ import java.util.UUID;
 
 public interface NewsOutputPort {
 
-  NewsEntity create(NewsEntity newsEntity);
-
-  NewsEntity update(NewsEntity newsEntity);
+  NewsEntity save(NewsEntity newsEntity);
 
   Page<NewsEntity> search(NewsFilter newsFilter, Pageable pagination);
 

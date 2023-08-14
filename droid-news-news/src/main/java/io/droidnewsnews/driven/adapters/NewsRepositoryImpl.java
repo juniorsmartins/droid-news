@@ -20,7 +20,7 @@ public class NewsRepositoryImpl implements NewsOutputPort {
   private NewsConverterOut converter;
 
   @Override
-  public NewsEntity create(final NewsEntity newsEntity) {
+  public NewsEntity save(final NewsEntity newsEntity) {
 
     return Optional.of(newsEntity)
       .map(this.converter::toDAO)
@@ -30,18 +30,16 @@ public class NewsRepositoryImpl implements NewsOutputPort {
   }
 
   @Override
-  public NewsEntity update(NewsEntity newsEntity) {
-    return null;
-  }
-
-  @Override
   public Page<NewsEntity> search(NewsFilter newsFilter, Pageable pagination) {
     return null;
   }
 
   @Override
-  public Optional<NewsEntity> consult(UUID id) {
-    return Optional.empty();
+  public Optional<NewsEntity> consult(final UUID id) {
+
+    return Optional.of(id)
+      .flatMap(this.newsJpa::findById)
+      .map(this.converter::toEntity);
   }
 
   @Override

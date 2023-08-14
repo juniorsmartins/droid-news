@@ -42,8 +42,14 @@ public final class NewsControllerImpl implements NewsController {
   }
 
   @Override
-  public ResponseEntity<Object> update(NewsDTOUpdate newsDTOUpdate) {
-    return null;
+  public ResponseEntity<Object> update(@RequestBody @Valid NewsDTOUpdate newsDTOUpdate) {
+
+    return Optional.of(newsDTOUpdate)
+      .map(this.converter::toEntity)
+      .map(this.inputPort::update)
+      .map(this.converter::toDTO)
+      .map(this.presenter::put)
+      .orElseThrow();
   }
 
   @Override
