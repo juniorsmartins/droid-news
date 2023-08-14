@@ -26,7 +26,7 @@ public class UserGatewayBuscarPorIdImpl implements UserGatewayBuscarPorId {
   public UserEntity buscarPorId(final UUID id) {
 
     return this.userJpa.findById(id)
-      .map(this.converterDAOToEntity::converterOut)
+      .map(this.converterDAOToEntity::converterDaoToEntity)
       .orElseThrow(() -> new UserNotFoundException(id));
   }
 }

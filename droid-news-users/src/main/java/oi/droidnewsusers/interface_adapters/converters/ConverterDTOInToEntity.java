@@ -5,6 +5,6 @@ import oi.droidnewsusers.interface_adapters.dtos.UserInDTO;
 
 public interface ConverterDTOInToEntity {
 
-  UserEntity converterIn(UserInDTO userInDTO);
+  UserEntity converterDtoInToEntity(UserInDTO userInDTO);
 }
 

@@ -14,18 +14,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public final class ConverterOutImpl implements ConverterEntityToDAO, ConverterDAOToEntity, ConverterPageEntitiesToPageDAOs,
+public final class ConverterImpl implements ConverterEntityToDAO, ConverterDAOToEntity, ConverterPageEntitiesToPageDAOs,
 ConverterDTOInToEntity, ConverterEntityToDTOOut {
 
   @Override
-  public UserDAO converterOut(UserEntity userEntity) {
+  public UserDAO converterEntityToDao(UserEntity userEntity) {
     var userDao = new UserDAO();
     BeanUtils.copyProperties(userEntity, userDao);
     return userDao;
   }
 
   @Override
-  public UserEntity converterOut(UserDAO userDAO) {
+  public UserEntity converterDaoToEntity(UserDAO userDAO) {
     var userEntity = new UserEntity();
     BeanUtils.copyProperties(userDAO, userEntity);
     return userEntity;
@@ -45,14 +45,14 @@ ConverterDTOInToEntity, ConverterEntityToDTOOut {
   }
 
   @Override
-  public UserEntity converterIn(UserInDTO userInDTO) {
+  public UserEntity converterDtoInToEntity(UserInDTO userInDTO) {
     var userEntity = new UserEntity();
     BeanUtils.copyProperties(userInDTO, userEntity);
     return userEntity;
   }
 
   @Override
-  public UserOutDTO converterIn(UserEntity userEntity) {
+  public UserOutDTO converterEntityToDtoOut(UserEntity userEntity) {
     var userOutDTO = new UserOutDTO();
     BeanUtils.copyProperties(userEntity, userOutDTO);
     return userOutDTO;

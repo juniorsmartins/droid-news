@@ -5,6 +5,6 @@ import oi.droidnewsusers.interface_adapters.dtos.UserOutDTO;
 
 public interface ConverterEntityToDTOOut {
 
-  UserOutDTO converterIn(UserEntity userEntity);
+  UserOutDTO converterEntityToDtoOut(UserEntity userEntity);
 }
 

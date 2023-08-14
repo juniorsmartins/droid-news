@@ -33,7 +33,7 @@ public final class UserControllerListarImpl implements UserController.UserContro
 
     var dtos = this.userServiceListar.listar(userGatewayListar)
       .stream()
-      .map(this.converterEntityToDTOOut::converterIn)
+      .map(this.converterEntityToDTOOut::converterEntityToDtoOut)
       .toList();
 
     return ResponseEntity

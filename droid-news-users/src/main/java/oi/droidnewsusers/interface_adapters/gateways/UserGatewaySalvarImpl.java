@@ -30,9 +30,9 @@ public class UserGatewaySalvarImpl implements UserGatewaySalvar {
   public UserEntity salvar(UserEntity userEntity) {
 
     return Optional.of(userEntity)
-      .map(this.converterEntityToDAO::converterOut)
+      .map(this.converterEntityToDAO::converterEntityToDao)
       .map(this.userJpa::save)
-      .map(this.converterDAOToEntity::converterOut)
+      .map(this.converterDAOToEntity::converterDaoToEntity)
       .orElseThrow();
   }
 }

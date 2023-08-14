@@ -41,9 +41,9 @@ public final class UserControllerSalvarImpl implements UserController.UserContro
   public ResponseEntity<UserOutDTO> salvar(@RequestBody @Valid UserInDTO userInDTO) {
 
     var dto = Optional.of(userInDTO)
-      .map(this.converterDTOInToEntity::converterIn)
+      .map(this.converterDTOInToEntity::converterDtoInToEntity)
       .map(entity -> this.userServiceSalvar.salvar(userGatewaySalvar, entity))
-      .map(this.converterEntityToDTOOut::converterIn)
+      .map(this.converterEntityToDTOOut::converterEntityToDtoOut)
       .orElseThrow();
 
     return ResponseEntity
