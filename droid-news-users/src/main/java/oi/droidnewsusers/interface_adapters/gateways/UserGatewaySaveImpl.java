@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Repository
-public class UserGatewaySalvarImpl implements UserGatewaySalvar {
+public class UserGatewaySaveImpl implements UserGatewaySave {
 
   private final UserJpa userJpa;
 
@@ -17,9 +17,9 @@ public class UserGatewaySalvarImpl implements UserGatewaySalvar {
 
   private final ConverterDAOToEntity converterDAOToEntity;
 
-  public UserGatewaySalvarImpl(UserJpa userJpa,
-                               ConverterEntityToDAO converterEntityToDAO,
-                               ConverterDAOToEntity converterDAOToEntity) {
+  public UserGatewaySaveImpl(UserJpa userJpa,
+                             ConverterEntityToDAO converterEntityToDAO,
+                             ConverterDAOToEntity converterDAOToEntity) {
     this.userJpa = userJpa;
     this.converterEntityToDAO = converterEntityToDAO;
     this.converterDAOToEntity = converterDAOToEntity;
@@ -27,7 +27,7 @@ public class UserGatewaySalvarImpl implements UserGatewaySalvar {
 
   @Transactional
   @Override
-  public UserEntity salvar(UserEntity userEntity) {
+  public UserEntity save(UserEntity userEntity) {
 
     return Optional.of(userEntity)
       .map(this.converterEntityToDAO::converterEntityToDao)

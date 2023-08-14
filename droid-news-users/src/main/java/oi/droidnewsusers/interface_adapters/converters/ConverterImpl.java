@@ -3,6 +3,7 @@ package oi.droidnewsusers.interface_adapters.converters;
 import oi.droidnewsusers.enterprise_business_rules.entities.UserEntity;
 import oi.droidnewsusers.interface_adapters.daos.UserDAO;
 import oi.droidnewsusers.interface_adapters.dtos.UserInDTO;
+import oi.droidnewsusers.interface_adapters.dtos.UserInDTOUpdate;
 import oi.droidnewsusers.interface_adapters.dtos.UserOutDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @Service
 public final class ConverterImpl implements ConverterEntityToDAO, ConverterDAOToEntity, ConverterPageEntitiesToPageDAOs,
-ConverterDTOInToEntity, ConverterEntityToDTOOut {
+ConverterDTOInToEntity, ConverterEntityToDTOOut, ConverterDTOUpdateToEntity {
 
   @Override
   public UserDAO converterEntityToDao(UserEntity userEntity) {
@@ -56,6 +57,13 @@ ConverterDTOInToEntity, ConverterEntityToDTOOut {
     var userOutDTO = new UserOutDTO();
     BeanUtils.copyProperties(userEntity, userOutDTO);
     return userOutDTO;
+  }
+
+  @Override
+  public UserEntity converterDtoUpdateToEntity(UserInDTOUpdate userInDTO) {
+    var userEntity = new UserEntity();
+    BeanUtils.copyProperties(userInDTO, userEntity);
+    return userEntity;
   }
 }
 
