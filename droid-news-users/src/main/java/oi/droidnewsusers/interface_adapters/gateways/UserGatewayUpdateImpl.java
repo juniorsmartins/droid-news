@@ -5,6 +5,7 @@ import oi.droidnewsusers.application_business_rules.exceptions.http_500.Database
 import oi.droidnewsusers.enterprise_business_rules.entities.UserEntity;
 import oi.droidnewsusers.interface_adapters.converters.ConverterDAOToEntity;
 import oi.droidnewsusers.interface_adapters.converters.ConverterEntityToDAO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,11 +33,6 @@ public class UserGatewayUpdateImpl implements UserGatewayUpdate {
   public UserEntity update(UserEntity userEntity) {
 
     return Optional.of(userEntity)
-      .map(entity -> {
-        this.userJpa.findById(entity.getId())
-          .orElseThrow(() -> new UserNotFoundException(entity.getId()));
-        return entity;
-      })
       .map(this.converterEntityToDAO::converterEntityToDao)
       .map(this.userJpa::save)
       .map(this.converterDAOToEntity::converterDaoToEntity)

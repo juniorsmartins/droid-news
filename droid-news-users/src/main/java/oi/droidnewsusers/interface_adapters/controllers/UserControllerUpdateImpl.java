@@ -7,6 +7,7 @@ import oi.droidnewsusers.interface_adapters.converters.ConverterEntityToDTOOut;
 import oi.droidnewsusers.interface_adapters.dtos.UserInDTO;
 import oi.droidnewsusers.interface_adapters.dtos.UserInDTOUpdate;
 import oi.droidnewsusers.interface_adapters.dtos.UserOutDTO;
+import oi.droidnewsusers.interface_adapters.gateways.UserGatewayBuscarPorId;
 import oi.droidnewsusers.interface_adapters.gateways.UserGatewayUpdate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,8 @@ public final class UserControllerUpdateImpl implements UserController.UserContro
 
   private final UserGatewayUpdate userGatewayUpdate;
 
+  private final UserGatewayBuscarPorId userGatewayBuscarPorId;
+
   private final ConverterDTOUpdateToEntity converterDTOUpdateToEntity;
 
   private final ConverterEntityToDTOOut converterEntityToDTOOut;
@@ -30,10 +33,12 @@ public final class UserControllerUpdateImpl implements UserController.UserContro
   public UserControllerUpdateImpl(UserServiceUpdate userServiceUpdate,
                                   UserGatewayUpdate userGatewayUpdate,
                                   ConverterDTOUpdateToEntity converterDTOUpdateToEntity,
+                                  UserGatewayBuscarPorId userGatewayBuscarPorId,
                                   ConverterEntityToDTOOut converterEntityToDTOOut) {
     this.userServiceUpdate = userServiceUpdate;
     this.userGatewayUpdate = userGatewayUpdate;
     this.converterDTOUpdateToEntity = converterDTOUpdateToEntity;
+    this.userGatewayBuscarPorId = userGatewayBuscarPorId;
     this.converterEntityToDTOOut = converterEntityToDTOOut;
   }
 
@@ -42,7 +47,7 @@ public final class UserControllerUpdateImpl implements UserController.UserContro
 
     var dto = Optional.of(userInDTO)
       .map(this.converterDTOUpdateToEntity::converterDtoUpdateToEntity)
-      .map(entity -> this.userServiceUpdate.update(userGatewayUpdate, entity))
+      .map(entity -> this.userServiceUpdate.update(userGatewayUpdate, userGatewayBuscarPorId, entity))
       .map(this.converterEntityToDTOOut::converterEntityToDtoOut)
       .orElseThrow();
 
