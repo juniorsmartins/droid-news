@@ -17,7 +17,5 @@ Ydroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/gateways/Us
 jdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/MensagemPadrao.java,7\5\755525e85dbb0f9698c6a04b3a276ffacc7eaca3
 …
 Udroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/daos/UserDAO.java,0\c\0cc2c5bffb4f73c42b11254bef0bfa6aaebbf3d9
-“
-cdroid-news-users/src/main/java/oi/droidnewsusers/enterprise_business_rules/entities/UserEntity.java,3\a\3a2c1e17456c832992bbe18fb3deefce8dad2501
 H
 droid-news-users/pom.xml,1\2\1214ac49770b889c9ca6fa541046480a747c90b6

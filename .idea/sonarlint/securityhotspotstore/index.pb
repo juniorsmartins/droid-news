@@ -5,8 +5,6 @@
 {droid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/http_409/EmailInvalidoException.java,5\4\540c1d9251217575e8fd433a5ee5f8c7fe5e08d7
 Ÿ
 odroid-news-users/src/main/java/oi/droidnewsusers/enterprise_business_rules/value_objects/CorreioEletronico.java,3\0\3080a58aa6694a2a7752fb99ebeed40f1f257d16
-“
-cdroid-news-users/src/main/java/oi/droidnewsusers/enterprise_business_rules/entities/UserEntity.java,3\a\3a2c1e17456c832992bbe18fb3deefce8dad2501
 …
 Udroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/daos/UserDAO.java,0\c\0cc2c5bffb4f73c42b11254bef0bfa6aaebbf3d9
 £

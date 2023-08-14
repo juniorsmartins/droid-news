@@ -1,5 +1,7 @@
 package oi.droidnewsusers.interface_adapters.gateways;
 
+import oi.droidnewsusers.application_business_rules.exceptions.http_404.UserNotFoundException;
+import oi.droidnewsusers.application_business_rules.exceptions.http_500.DatabaseException;
 import oi.droidnewsusers.enterprise_business_rules.entities.UserEntity;
 import oi.droidnewsusers.interface_adapters.converters.ConverterDAOToEntity;
 import oi.droidnewsusers.interface_adapters.converters.ConverterEntityToDAO;
@@ -30,10 +32,15 @@ public class UserGatewayUpdateImpl implements UserGatewayUpdate {
   public UserEntity update(UserEntity userEntity) {
 
     return Optional.of(userEntity)
+      .map(entity -> {
+        this.userJpa.findById(entity.getId())
+          .orElseThrow(() -> new UserNotFoundException(entity.getId()));
+        return entity;
+      })
       .map(this.converterEntityToDAO::converterEntityToDao)
       .map(this.userJpa::save)
       .map(this.converterDAOToEntity::converterDaoToEntity)
-      .orElseThrow();
+      .orElseThrow(() -> new DatabaseException());
   }
 }
 

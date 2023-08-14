@@ -1,5 +1,6 @@
 package oi.droidnewsusers.interface_adapters.gateways;
 
+import oi.droidnewsusers.application_business_rules.exceptions.http_404.UserNotFoundException;
 import oi.droidnewsusers.application_business_rules.exceptions.http_409.NonDeletableResourceException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
@@ -25,7 +26,7 @@ public class UserGatewayDeletaByIdImpl implements UserGatewayDeleteById {
         this.userJpa.delete(entity);
         return true;
       })
-      .orElseThrow(() -> new NonDeletableResourceException(id));
+      .orElseThrow(() -> new UserNotFoundException(id));
   }
 }
 

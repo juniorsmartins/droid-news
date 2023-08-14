@@ -32,11 +32,6 @@ public class UserGatewaySaveImpl implements UserGatewaySave {
   public UserEntity save(UserEntity userEntity) {
 
     return Optional.of(userEntity)
-      .map(entity -> {
-        this.userJpa.findById(entity.getId())
-          .orElseThrow(() -> new UserNotFoundException(entity.getId()));
-        return entity;
-      })
       .map(this.converterEntityToDAO::converterEntityToDao)
       .map(this.userJpa::save)
       .map(this.converterDAOToEntity::converterDaoToEntity)
