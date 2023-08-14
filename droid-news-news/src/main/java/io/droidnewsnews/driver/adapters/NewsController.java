@@ -2,7 +2,7 @@ package io.droidnewsnews.driver.adapters;
 
 import io.droidnewsnews.driver.dtos.NewsDTOIn;
 import io.droidnewsnews.driver.dtos.NewsDTOUpdate;
-import io.droidnewsnews.driver.dtos.NewsFiltroDTO;
+import io.droidnewsnews.driver.dtos.NewsFilterDTO;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +21,7 @@ public interface NewsController {
   ResponseEntity<Object> update(NewsDTOUpdate newsDTOUpdate);
 
   @GetMapping
-  ResponseEntity<Object> pesquisar(NewsFiltroDTO filtro, Pageable paginacao);
+  ResponseEntity<Object> search(NewsFilterDTO filtro, Pageable paginacao);
 
   @DeleteMapping(path = "/{id}")
   ResponseEntity<Object> deletarPorId(UUID id);

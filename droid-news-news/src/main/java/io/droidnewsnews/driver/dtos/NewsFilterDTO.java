@@ -2,7 +2,7 @@ package io.droidnewsnews.driver.dtos;
 
 import java.util.UUID;
 
-public record NewsFiltroDTO(
+public record NewsFilterDTO(
 
   UUID id,
 

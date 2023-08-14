@@ -2,7 +2,7 @@ package io.droidnewsnews.driver.adapters;
 
 import io.droidnewsnews.driver.dtos.NewsDTOIn;
 import io.droidnewsnews.driver.dtos.NewsDTOUpdate;
-import io.droidnewsnews.driver.dtos.NewsFiltroDTO;
+import io.droidnewsnews.driver.dtos.NewsFilterDTO;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 
@@ -21,7 +21,7 @@ public final class NewsControllerImpl implements NewsController {
   }
 
   @Override
-  public ResponseEntity<Object> pesquisar(NewsFiltroDTO filtro, Pageable paginacao) {
+  public ResponseEntity<Object> search(NewsFilterDTO filter, Pageable pagination) {
     return null;
   }
 
