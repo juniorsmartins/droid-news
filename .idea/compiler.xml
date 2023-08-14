@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="droid-news-users" />
+        <module name="droid-news-news" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="droid-news-news" options="-parameters" />
       <module name="droid-news-users" options="-parameters" />
     </option>
   </component>

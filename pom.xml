@@ -18,6 +18,7 @@
 
     <modules>
         <module>droid-news-users</module>
+        <module>droid-news-news</module>
     </modules>
 
     <properties>

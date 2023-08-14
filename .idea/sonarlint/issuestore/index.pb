@@ -1,6 +1,4 @@
 
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 «
 {droid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/http_409/EmailInvalidoException.java,5\4\540c1d9251217575e8fd433a5ee5f8c7fe5e08d7
 Ÿ
@@ -17,5 +15,3 @@ Ydroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/gateways/Us
 jdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/MensagemPadrao.java,7\5\755525e85dbb0f9698c6a04b3a276ffacc7eaca3
 …
 Udroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/daos/UserDAO.java,0\c\0cc2c5bffb4f73c42b11254bef0bfa6aaebbf3d9
-H
-droid-news-users/pom.xml,1\2\1214ac49770b889c9ca6fa541046480a747c90b6
