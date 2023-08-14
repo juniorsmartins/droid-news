@@ -1,8 +1,6 @@
 
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-´
-ƒdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/http_409/RegraDeNegocioVioladaException.java,0\6\0667cad03427496013f55ca6c309991ceed92ff0
 «
 {droid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/http_409/EmailInvalidoException.java,5\4\540c1d9251217575e8fd433a5ee5f8c7fe5e08d7
 Ÿ
