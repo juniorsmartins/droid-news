@@ -3,8 +3,6 @@
 {droid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/http_409/EmailInvalidoException.java,5\4\540c1d9251217575e8fd433a5ee5f8c7fe5e08d7
 Ÿ
 odroid-news-users/src/main/java/oi/droidnewsusers/enterprise_business_rules/value_objects/CorreioEletronico.java,3\0\3080a58aa6694a2a7752fb99ebeed40f1f257d16
-…
-Udroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/daos/UserDAO.java,0\c\0cc2c5bffb4f73c42b11254bef0bfa6aaebbf3d9
 £
 sdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/converters/ConverterPageEntitiesToPageDAOs.java,4\e\4e2a1a2377c9fd61db6fa12b2068ba90e55a16eb
 ˜

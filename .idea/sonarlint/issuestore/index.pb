@@ -13,5 +13,3 @@ hdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/converters/
 Ydroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/gateways/UserJpa.java,6\3\6389cfbbdd6256e26f6b0b61828f918609269b2a
 š
 jdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/MensagemPadrao.java,7\5\755525e85dbb0f9698c6a04b3a276ffacc7eaca3
-…
-Udroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/daos/UserDAO.java,0\c\0cc2c5bffb4f73c42b11254bef0bfa6aaebbf3d9
