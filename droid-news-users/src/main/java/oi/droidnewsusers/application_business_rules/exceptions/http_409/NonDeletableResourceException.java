@@ -1,6 +1,6 @@
 package oi.droidnewsusers.application_business_rules.exceptions.http_409;
 
-import oi.droidnewsusers.application_business_rules.exceptions.MensagemPadrao;
+import oi.droidnewsusers.application_business_rules.exceptions.MessageDefault;
 
 import java.util.UUID;
 
@@ -13,7 +13,7 @@ public final class NonDeletableResourceException extends RegraDeNegocioVioladaEx
   }
 
   public NonDeletableResourceException(UUID id) {
-    this(String.format(MensagemPadrao.NON_DELETABLE_RESOURCE, id));
+    this(String.format(MessageDefault.NON_DELETABLE_RESOURCE, id));
   }
 }
 

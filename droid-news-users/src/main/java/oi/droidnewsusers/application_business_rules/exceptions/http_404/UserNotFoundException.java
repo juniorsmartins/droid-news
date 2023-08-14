@@ -1,6 +1,6 @@
 package oi.droidnewsusers.application_business_rules.exceptions.http_404;
 
-import oi.droidnewsusers.application_business_rules.exceptions.MensagemPadrao;
+import oi.droidnewsusers.application_business_rules.exceptions.MessageDefault;
 
 import java.util.UUID;
 
@@ -13,7 +13,7 @@ public final class UserNotFoundException extends ResourceNotFoundException {
   }
 
   public UserNotFoundException(UUID id) {
-    this(String.format(MensagemPadrao.USER_NOT_FOUND, id));
+    this(String.format(MessageDefault.USER_NOT_FOUND, id));
   }
 }
 

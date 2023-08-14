@@ -26,7 +26,7 @@ public class UserGatewayListarImpl implements UserGatewayListar {
 
     return this.userJpa.findAll()
       .stream()
-      .map(this.converterDAOToEntity::converterOut)
+      .map(this.converterDAOToEntity::converterDaoToEntity)
       .toList();
   }
 }

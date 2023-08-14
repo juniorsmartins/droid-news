@@ -1,12 +1,12 @@
 package oi.droidnewsusers.interface_adapters.controllers;
 
 import jakarta.validation.Valid;
-import oi.droidnewsusers.application_business_rules.use_cases.UserServiceSalvar;
+import oi.droidnewsusers.application_business_rules.use_cases.UserServiceCreate;
 import oi.droidnewsusers.interface_adapters.converters.ConverterDTOInToEntity;
 import oi.droidnewsusers.interface_adapters.converters.ConverterEntityToDTOOut;
 import oi.droidnewsusers.interface_adapters.dtos.UserInDTO;
 import oi.droidnewsusers.interface_adapters.dtos.UserOutDTO;
-import oi.droidnewsusers.interface_adapters.gateways.UserGatewaySalvar;
+import oi.droidnewsusers.interface_adapters.gateways.UserGatewaySave;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,33 +17,33 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/v1/users")
-public final class UserControllerSalvarImpl implements UserController.UserControllerSalvar {
+public final class UserControllerCreateImpl implements UserController.UserControllerCreate {
 
-  private final UserServiceSalvar userServiceSalvar;
+  private final UserServiceCreate userServiceCreate;
 
-  private final UserGatewaySalvar userGatewaySalvar;
+  private final UserGatewaySave userGatewaySave;
 
   private final ConverterDTOInToEntity converterDTOInToEntity;
 
   private final ConverterEntityToDTOOut converterEntityToDTOOut;
 
-  public UserControllerSalvarImpl(UserServiceSalvar userServiceSalvar,
-                                  UserGatewaySalvar userGatewaySalvar,
+  public UserControllerCreateImpl(UserServiceCreate userServiceCreate,
+                                  UserGatewaySave userGatewaySave,
                                   ConverterDTOInToEntity converterDTOInToEntity,
                                   ConverterEntityToDTOOut converterEntityToDTOOut) {
-    this.userServiceSalvar = userServiceSalvar;
-    this.userGatewaySalvar = userGatewaySalvar;
+    this.userServiceCreate = userServiceCreate;
+    this.userGatewaySave = userGatewaySave;
     this.converterDTOInToEntity = converterDTOInToEntity;
     this.converterEntityToDTOOut = converterEntityToDTOOut;
   }
 
   @Override
-  public ResponseEntity<UserOutDTO> salvar(@RequestBody @Valid UserInDTO userInDTO) {
+  public ResponseEntity<UserOutDTO> create(@RequestBody @Valid UserInDTO userInDTO) {
 
     var dto = Optional.of(userInDTO)
-      .map(this.converterDTOInToEntity::converterIn)
-      .map(entity -> this.userServiceSalvar.salvar(userGatewaySalvar, entity))
-      .map(this.converterEntityToDTOOut::converterIn)
+      .map(this.converterDTOInToEntity::converterDtoInToEntity)
+      .map(entity -> this.userServiceCreate.create(userGatewaySave, entity))
+      .map(this.converterEntityToDTOOut::converterEntityToDtoOut)
       .orElseThrow();
 
     return ResponseEntity

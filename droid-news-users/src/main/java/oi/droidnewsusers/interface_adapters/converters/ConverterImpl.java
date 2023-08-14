@@ -3,6 +3,7 @@ package oi.droidnewsusers.interface_adapters.converters;
 import oi.droidnewsusers.enterprise_business_rules.entities.UserEntity;
 import oi.droidnewsusers.interface_adapters.daos.UserDAO;
 import oi.droidnewsusers.interface_adapters.dtos.UserInDTO;
+import oi.droidnewsusers.interface_adapters.dtos.UserInDTOUpdate;
 import oi.droidnewsusers.interface_adapters.dtos.UserOutDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -14,18 +15,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public final class ConverterOutImpl implements ConverterEntityToDAO, ConverterDAOToEntity, ConverterPageEntitiesToPageDAOs,
-ConverterDTOInToEntity, ConverterEntityToDTOOut {
+public final class ConverterImpl implements ConverterEntityToDAO, ConverterDAOToEntity, ConverterPageEntitiesToPageDAOs,
+ConverterDTOInToEntity, ConverterEntityToDTOOut, ConverterDTOUpdateToEntity {
 
   @Override
-  public UserDAO converterOut(UserEntity userEntity) {
+  public UserDAO converterEntityToDao(UserEntity userEntity) {
     var userDao = new UserDAO();
     BeanUtils.copyProperties(userEntity, userDao);
     return userDao;
   }
 
   @Override
-  public UserEntity converterOut(UserDAO userDAO) {
+  public UserEntity converterDaoToEntity(UserDAO userDAO) {
     var userEntity = new UserEntity();
     BeanUtils.copyProperties(userDAO, userEntity);
     return userEntity;
@@ -45,17 +46,24 @@ ConverterDTOInToEntity, ConverterEntityToDTOOut {
   }
 
   @Override
-  public UserEntity converterIn(UserInDTO userInDTO) {
+  public UserEntity converterDtoInToEntity(UserInDTO userInDTO) {
     var userEntity = new UserEntity();
     BeanUtils.copyProperties(userInDTO, userEntity);
     return userEntity;
   }
 
   @Override
-  public UserOutDTO converterIn(UserEntity userEntity) {
+  public UserOutDTO converterEntityToDtoOut(UserEntity userEntity) {
     var userOutDTO = new UserOutDTO();
     BeanUtils.copyProperties(userEntity, userOutDTO);
     return userOutDTO;
+  }
+
+  @Override
+  public UserEntity converterDtoUpdateToEntity(UserInDTOUpdate userInDTO) {
+    var userEntity = new UserEntity();
+    BeanUtils.copyProperties(userInDTO, userEntity);
+    return userEntity;
   }
 }
 
