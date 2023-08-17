@@ -5,11 +5,16 @@ import io.droidnewsnews.core.application.ports.NewsInputPort;
 import io.droidnewsnews.core.application.ports.NewsOutputPort;
 import io.droidnewsnews.core.domain.NewsFilter;
 import io.droidnewsnews.core.domain.entities.NewsEntity;
+import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -20,6 +25,7 @@ public class NewsServiceImpl implements NewsInputPort {
   @Autowired
   private NewsOutputPort outputPort;
 
+  @Transactional
   @Override
   public NewsEntity create(final NewsEntity newsEntity) {
 
@@ -28,6 +34,7 @@ public class NewsServiceImpl implements NewsInputPort {
       .orElseThrow();
   }
 
+  @Transactional
   @Override
   public NewsEntity update(final NewsEntity newsEntity) {
 
@@ -41,13 +48,18 @@ public class NewsServiceImpl implements NewsInputPort {
       .orElseThrow();
   }
 
+  @Transactional(readOnly = true)
   @Override
-  public Page<NewsEntity> search(NewsFilter newsFilter, Pageable pagination) {
-    return null;
+  public Page<NewsEntity> search(final NewsFilter newsFilter, final Pageable pagination) {
+
+    return Optional.of(newsFilter)
+      .map(filter -> this.outputPort.search(filter, pagination))
+      .orElseThrow();
   }
 
+  @Transactional(isolation = Isolation.SERIALIZABLE)
   @Override
-  public void delete(UUID id) {
+  public void delete(final UUID id) {
 
   }
 

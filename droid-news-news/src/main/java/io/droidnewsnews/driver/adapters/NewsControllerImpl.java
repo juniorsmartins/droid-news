@@ -9,6 +9,8 @@ import io.droidnewsnews.driver.presenters.Presenter;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,8 +55,15 @@ public final class NewsControllerImpl implements NewsController {
   }
 
   @Override
-  public ResponseEntity<Object> search(NewsFilterDTO filter, Pageable pagination) {
-    return null;
+  public ResponseEntity<Object> search(@Valid final NewsFilterDTO filterDTO,
+    @PageableDefault(sort = "title", direction = Sort.Direction.ASC, page = 0, size = 10) final Pageable pagination) {
+
+    return Optional.of(filterDTO)
+      .map(this.converter::toFilter)
+      .map(filter -> this.inputPort.search(filter, pagination))
+      .map(this.converter::toPageDTOOut)
+      .map(this.presenter::get)
+      .orElseThrow();
   }
 
   @Override
