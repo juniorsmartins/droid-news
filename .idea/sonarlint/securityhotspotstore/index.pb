@@ -21,8 +21,6 @@ cdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/controllers
 cdroid-news-users/src/main/java/oi/droidnewsusers/enterprise_business_rules/entities/UserEntity.java,3\a\3a2c1e17456c832992bbe18fb3deefce8dad2501
 —
 gdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/gateways/UserGatewayListarImpl.java,4\9\49beef027f587425a287d4e531b056fd08502ff4
-¡
-qdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/controllers/UserControllerDeleteByIdImpl.java,f\1\f14b7de671f89aa1dfc4297566b21c3284922cd6
 ˜
 hdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/gateways/UserGatewayBuscarPorId.java,0\9\0910460e5c3478b629ee0d54aa3e2a58936dcee4
 œ

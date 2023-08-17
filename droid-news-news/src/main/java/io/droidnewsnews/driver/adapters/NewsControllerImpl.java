@@ -67,8 +67,10 @@ public final class NewsControllerImpl implements NewsController {
   }
 
   @Override
-  public ResponseEntity<Object> deletarPorId(UUID id) {
-    return null;
+  public ResponseEntity<Object> deletarPorId(final UUID id) {
+
+    this.inputPort.delete(id);
+    return this.presenter.delete();
   }
 }
 

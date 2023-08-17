@@ -29,8 +29,6 @@ hdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/gateways/Us
 pdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/use_cases/UserServiceDeleteById.java,7\0\7022e689958e9760a50a931d267c0be24236804a
 ¤
 tdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/use_cases/UserServiceDeleteByIdImpl.java,6\b\6b97f621695acd59cef02d2e9e81656dfcc92a33
-¡
-qdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/controllers/UserControllerDeleteByIdImpl.java,f\1\f14b7de671f89aa1dfc4297566b21c3284922cd6
 ‡
 Wdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/dtos/UserInDTO.java,f\5\f58a70fb0fe1a4385bca766684d73157756f6393
 …

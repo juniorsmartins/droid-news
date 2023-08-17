@@ -40,7 +40,7 @@ public class NewsServiceImpl implements NewsInputPort {
 
     return Optional.of(newsEntity)
       .map(entity -> {
-        var register = this.consultNews(entity);
+        var register = this.consultNews(entity.getId());
         BeanUtils.copyProperties(entity, register);
         return register;
       })
@@ -61,11 +61,12 @@ public class NewsServiceImpl implements NewsInputPort {
   @Override
   public void delete(final UUID id) {
 
+    this.outputPort.delete(this.consultNews(id));
   }
 
-  private NewsEntity consultNews(NewsEntity entity) {
-    return this.outputPort.consult(entity.getId())
-      .orElseThrow(() -> new NewsNotFoundException(entity.getId()));
+  private NewsEntity consultNews(UUID id) {
+    return this.outputPort.consult(id)
+      .orElseThrow(() -> new NewsNotFoundException(id));
   }
 }
 
