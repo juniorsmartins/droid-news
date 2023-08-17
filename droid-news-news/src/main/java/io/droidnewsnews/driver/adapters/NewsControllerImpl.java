@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -61,13 +62,13 @@ public final class NewsControllerImpl implements NewsController {
     return Optional.of(filterDTO)
       .map(this.converter::toFilter)
       .map(filter -> this.inputPort.search(filter, pagination))
-      .map(this.converter::toPageDTOOut)
+      .map(pageEntities -> pageEntities.map(this.converter::toDTO))
       .map(this.presenter::get)
       .orElseThrow();
   }
 
   @Override
-  public ResponseEntity<Object> deletarPorId(final UUID id) {
+  public ResponseEntity<Object> deletarPorId(@PathVariable(name = "id") final UUID id) {
 
     this.inputPort.delete(id);
     return this.presenter.delete();

@@ -5,13 +5,10 @@ import io.droidnewsnews.core.application.ports.NewsInputPort;
 import io.droidnewsnews.core.application.ports.NewsOutputPort;
 import io.droidnewsnews.core.domain.NewsFilter;
 import io.droidnewsnews.core.domain.entities.NewsEntity;
-import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,7 +33,7 @@ public class NewsServiceImpl implements NewsInputPort {
 
   @Transactional
   @Override
-  public NewsEntity update(final NewsEntity newsEntity) {
+  public NewsEntity update(NewsEntity newsEntity) {
 
     return Optional.of(newsEntity)
       .map(entity -> {
@@ -64,7 +61,7 @@ public class NewsServiceImpl implements NewsInputPort {
     this.outputPort.delete(this.consultNews(id));
   }
 
-  private NewsEntity consultNews(UUID id) {
+  private NewsEntity consultNews(final UUID id) {
     return this.outputPort.consult(id)
       .orElseThrow(() -> new NewsNotFoundException(id));
   }

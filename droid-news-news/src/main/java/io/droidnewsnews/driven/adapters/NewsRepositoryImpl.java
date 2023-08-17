@@ -9,10 +9,12 @@ import io.droidnewsnews.driven.specifications.NewsSpecs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 import java.util.UUID;
 
+@Repository
 public class NewsRepositoryImpl implements NewsOutputPort {
 
   @Autowired
@@ -36,7 +38,7 @@ public class NewsRepositoryImpl implements NewsOutputPort {
 
     return Optional.of(newsFilter)
       .map(filter -> this.newsJpa.findAll(NewsSpecs.queryDynamically(filter), pagination))
-      .map(this.converter::toPageEntity)
+      .map(pageEntities -> pageEntities.map(this.converter::toEntity))
       .orElseThrow();
   }
 

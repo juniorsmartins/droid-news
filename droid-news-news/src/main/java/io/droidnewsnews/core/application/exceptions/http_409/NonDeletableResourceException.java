@@ -1,6 +1,6 @@
 package io.droidnewsnews.core.application.exceptions.http_409;
 
-import oi.droidnewsusers.application_business_rules.exceptions.MessageDefault;
+import io.droidnewsnews.core.application.exceptions.MessageDefault;
 
 import java.util.UUID;
 

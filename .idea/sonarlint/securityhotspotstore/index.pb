@@ -45,3 +45,9 @@ ndroid-news-news/src/main/java/io/droidnewsnews/core/application/exceptions/http
 vdroid-news-news/src/main/java/io/droidnewsnews/core/application/exceptions/http_409/BusinessRulesVioladaException.java,d\9\d95fbe47bf729856518b5ed8d73f6b9a1913ba7b
 ³
 ‚droid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/http_409/NonDeletableResourceException.java,3\0\30ec8522d053f696b27572aa88b74201d01cc51b
+ƒ
+Sdroid-news-news/src/main/java/io/droidnewsnews/driven/specifications/NewsSpecs.java,5\0\50cfa40a34b3d9730e5fbbd3c39172bf88ed29b2
+{
+Kdroid-news-news/src/main/java/io/droidnewsnews/driven/adapters/NewsJpa.java,4\2\4262aef903241cbafc8d1fa9539cdd74b0bec5dd
+¡
+qdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/controllers/UserControllerDeleteByIdImpl.java,f\1\f14b7de671f89aa1dfc4297566b21c3284922cd6
