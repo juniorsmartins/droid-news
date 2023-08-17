@@ -1,6 +1,4 @@
 
-«
-{droid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/http_409/EmailInvalidoException.java,5\4\540c1d9251217575e8fd433a5ee5f8c7fe5e08d7
 Ÿ
 odroid-news-users/src/main/java/oi/droidnewsusers/enterprise_business_rules/value_objects/CorreioEletronico.java,3\0\3080a58aa6694a2a7752fb99ebeed40f1f257d16
 £
@@ -9,30 +7,18 @@ sdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/converters/
 hdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/converters/ConverterDAOToEntity.java,a\a\aac1b8061908e3937081d96bc49319ba9da9d876
 ˜
 hdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/converters/ConverterEntityToDAO.java,6\a\6a25a0d3709ff51958e99281880f92f450d77058
-‰
-Ydroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/gateways/UserJpa.java,6\3\6389cfbbdd6256e26f6b0b61828f918609269b2a
 ˆ
 Xdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/dtos/UserOutDTO.java,3\9\3975ce78ab49936d77c8de7d0b300a452d430743
-“
-cdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/controllers/UserController.java,2\3\235d9755460754801168c1754b1f5481b5ba0a37
 ´
 ƒdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/http_409/RegraDeNegocioVioladaException.java,0\6\0667cad03427496013f55ca6c309991ceed92ff0
-“
-cdroid-news-users/src/main/java/oi/droidnewsusers/enterprise_business_rules/entities/UserEntity.java,3\a\3a2c1e17456c832992bbe18fb3deefce8dad2501
 —
 gdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/gateways/UserGatewayListarImpl.java,4\9\49beef027f587425a287d4e531b056fd08502ff4
-˜
-hdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/gateways/UserGatewayBuscarPorId.java,0\9\0910460e5c3478b629ee0d54aa3e2a58936dcee4
-œ
-ldroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/gateways/UserGatewayBuscarPorIdImpl.java,d\3\d35ad3fd735428925abd2ec8aa2d1e8a44c93368
  
 pdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/use_cases/UserServiceDeleteById.java,7\0\7022e689958e9760a50a931d267c0be24236804a
 ¤
 tdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/use_cases/UserServiceDeleteByIdImpl.java,6\b\6b97f621695acd59cef02d2e9e81656dfcc92a33
 ‡
 Wdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/dtos/UserInDTO.java,f\5\f58a70fb0fe1a4385bca766684d73157756f6393
-…
-Udroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/daos/UserDAO.java,0\c\0cc2c5bffb4f73c42b11254bef0bfa6aaebbf3d9
 
 Odroid-news-news/src/main/java/io/droidnewsnews/driver/presenters/Presenter.java,1\1\113d646da640a256d989c9703c98b6343db7f97f
 ƒ
