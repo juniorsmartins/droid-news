@@ -1,5 +1,6 @@
 package io.droidnewsnews.core.domain.entities;
 
+import io.droidnewsnews.core.domain.value_objects.CorreioEletronico;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -24,8 +25,16 @@ public final class UserEntity implements Serializable {
 
   private String fullName;
 
-  private String email;
+  private CorreioEletronico email;
 
   private String password;
+
+  public void setEmail(String email) {
+    this.email = new CorreioEletronico(email);
+  }
+
+  public String getEmail() {
+    return this.email.getEmail();
+  }
 }
 

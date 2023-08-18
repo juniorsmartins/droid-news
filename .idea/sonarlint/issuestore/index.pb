@@ -23,8 +23,6 @@ Wdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/dtos/UserIn
 Sdroid-news-news/src/main/java/io/droidnewsnews/driver/presenters/PresenterImpl.java,d\9\d9cf406024dfd22239379b7b12193caa1cf68060
 
 Odroid-news-news/src/main/java/io/droidnewsnews/driver/presenters/Presenter.java,1\1\113d646da640a256d989c9703c98b6343db7f97f
-Ž
-^droid-news-news/src/main/java/io/droidnewsnews/core/application/exceptions/MessageDefault.java,3\9\398f1cfb1c9925bd61673836a492e16acbc0b63b
 ž
 ndroid-news-news/src/main/java/io/droidnewsnews/core/application/exceptions/http_404/NewsNotFoundException.java,9\b\9b729105726a67d12476213955c841f3ee5d9a4e
 ¦
