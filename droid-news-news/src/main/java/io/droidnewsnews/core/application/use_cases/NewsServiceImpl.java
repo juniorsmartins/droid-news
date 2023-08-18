@@ -1,8 +1,10 @@
 package io.droidnewsnews.core.application.use_cases;
 
+import io.droidnewsnews.core.application.comunication.UserClientRest;
 import io.droidnewsnews.core.application.exceptions.http_404.NewsNotFoundException;
 import io.droidnewsnews.core.application.ports.NewsInputPort;
 import io.droidnewsnews.core.application.ports.NewsOutputPort;
+import io.droidnewsnews.core.domain.entities.UserEntity;
 import io.droidnewsnews.core.domain.filters.NewsFilter;
 import io.droidnewsnews.core.domain.entities.NewsEntity;
 import org.springframework.beans.BeanUtils;
@@ -21,6 +23,9 @@ public class NewsServiceImpl implements NewsInputPort {
 
   @Autowired
   private NewsOutputPort outputPort;
+
+  @Autowired
+  private UserClientRest userClientRest;
 
   @Transactional
   @Override
@@ -59,6 +64,21 @@ public class NewsServiceImpl implements NewsInputPort {
   public void delete(final UUID id) {
 
     this.outputPort.delete(this.consultNews(id));
+  }
+
+  @Override
+  public Optional<UserEntity> subscribeUser(UserEntity userEntity, UUID newsId) {
+    return Optional.empty();
+  }
+
+  @Override
+  public Optional<UserEntity> createUser(UserEntity userEntity, UUID newsId) {
+    return Optional.empty();
+  }
+
+  @Override
+  public Optional<UserEntity> deleteUser(UserEntity userEntity, UUID newsId) {
+    return Optional.empty();
   }
 
   private NewsEntity consultNews(final UUID id) {
