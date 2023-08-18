@@ -2,7 +2,7 @@ package io.droidnewsnews.driven.adapters;
 
 import io.droidnewsnews.core.application.exceptions.http_409.NonDeletableResourceException;
 import io.droidnewsnews.core.application.ports.NewsOutputPort;
-import io.droidnewsnews.core.domain.NewsFilter;
+import io.droidnewsnews.core.domain.filters.NewsFilter;
 import io.droidnewsnews.core.domain.entities.NewsEntity;
 import io.droidnewsnews.driven.convertersOut.NewsConverterOut;
 import io.droidnewsnews.driven.specifications.NewsSpecs;

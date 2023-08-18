@@ -3,7 +3,7 @@ package io.droidnewsnews.core.application.use_cases;
 import io.droidnewsnews.core.application.exceptions.http_404.NewsNotFoundException;
 import io.droidnewsnews.core.application.ports.NewsInputPort;
 import io.droidnewsnews.core.application.ports.NewsOutputPort;
-import io.droidnewsnews.core.domain.NewsFilter;
+import io.droidnewsnews.core.domain.filters.NewsFilter;
 import io.droidnewsnews.core.domain.entities.NewsEntity;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

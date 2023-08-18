@@ -10,12 +10,13 @@ public class NewsConverterOutImpl implements NewsConverterOut {
 
   @Override
   public NewsDAO toDAO(NewsEntity entity) {
-    return new NewsDAO(
-      entity.getId(),
-      entity.getHat(),
-      entity.getTitle(),
-      entity.getCaption(),
-      entity.getBody());
+    var newsDAO = new NewsDAO();
+    newsDAO.setId(entity.getId());
+    newsDAO.setHat(entity.getHat());
+    newsDAO.setTitle(entity.getTitle());
+    newsDAO.setCaption(entity.getCaption());
+    newsDAO.setBody(entity.getBody());
+    return newsDAO;
   }
 
   @Override

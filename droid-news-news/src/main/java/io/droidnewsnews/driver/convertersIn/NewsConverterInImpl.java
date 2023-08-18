@@ -1,6 +1,6 @@
 package io.droidnewsnews.driver.convertersIn;
 
-import io.droidnewsnews.core.domain.NewsFilter;
+import io.droidnewsnews.core.domain.filters.NewsFilter;
 import io.droidnewsnews.core.domain.entities.NewsEntity;
 import io.droidnewsnews.driver.dtos.NewsDTOIn;
 import io.droidnewsnews.driver.dtos.NewsDTOOut;

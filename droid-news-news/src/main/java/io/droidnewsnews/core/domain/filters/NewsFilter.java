@@ -1,4 +1,4 @@
-package io.droidnewsnews.core.domain;
+package io.droidnewsnews.core.domain.filters;
 
 import java.util.UUID;
 

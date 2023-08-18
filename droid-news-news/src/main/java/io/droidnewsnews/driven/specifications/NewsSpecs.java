@@ -1,7 +1,6 @@
 package io.droidnewsnews.driven.specifications;
 
-import io.droidnewsnews.core.domain.NewsFilter;
-import io.droidnewsnews.core.domain.entities.NewsEntity;
+import io.droidnewsnews.core.domain.filters.NewsFilter;
 import io.droidnewsnews.driven.daos.NewsDAO;
 import jakarta.persistence.criteria.Predicate;
 import org.springframework.data.jpa.domain.Specification;
