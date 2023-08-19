@@ -17,7 +17,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @EqualsAndHashCode(of = {"id"})
-public final class UserEntity implements Serializable {
+public final class NewsUserEntity implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -28,6 +28,8 @@ public final class UserEntity implements Serializable {
   private CorreioEletronico email;
 
   private String password;
+
+  private UUID userId;
 
   public void setEmail(String email) {
     this.email = new CorreioEletronico(email);
