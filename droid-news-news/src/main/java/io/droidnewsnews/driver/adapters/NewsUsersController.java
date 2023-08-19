@@ -14,15 +14,17 @@ import java.util.UUID;
 public interface NewsUsersController {
 
   @PutMapping(path = "/{newsId}/subscribe-user/{userId}")
-  ResponseEntity<?> subscribeUser(@PathVariable(name = "newsId") final UUID newsId,
-                                  @PathVariable(name = "userId") final UUID userId);
+  ResponseEntity<Object> subscribeUser(@PathVariable(name = "newsId") final UUID newsId,
+                                       @PathVariable(name = "userId") final UUID userId);
+
+  @DeleteMapping(path = "/{newsId}/unsubscribe-user/{userId}")
+  ResponseEntity<Object> unsubscribeUser(@PathVariable(name = "newsId") final UUID newsId,
+                                         @PathVariable(name = "userId") final UUID userId);
 
   @PostMapping(path = "/{newsId}")
   ResponseEntity<?> createUser(@RequestBody @Valid final UserInDTO userInDTO,
                                @PathVariable(name = "newsId") final UUID newsId);
 
-  @DeleteMapping(path = "/{newsId}")
-  ResponseEntity<?> deleteUser(@RequestBody @Valid final UserInDTO userInDTO,
-                               @PathVariable(name = "newsId") final UUID newsId);
+
 }
 
