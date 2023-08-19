@@ -8,12 +8,12 @@ public final class UserNotFoundException extends ResourceNotFoundException {
 
   private static final long serialVersionUID = 1L;
 
-  public UserNotFoundException(String message) {
-    super(message);
+  public UserNotFoundException(String email) {
+    super(String.format(MessageDefault.USER_NOT_FOUND_BY_EMAIL, email));
   }
 
   public UserNotFoundException(UUID id) {
-    this(String.format(MessageDefault.USER_NOT_FOUND, id));
+    this(String.format(MessageDefault.USER_NOT_FOUND_BY_ID, id));
   }
 }
 

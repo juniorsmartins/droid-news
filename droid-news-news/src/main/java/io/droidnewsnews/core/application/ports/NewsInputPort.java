@@ -1,7 +1,7 @@
 package io.droidnewsnews.core.application.ports;
 
-import io.droidnewsnews.core.domain.NewsFilter;
 import io.droidnewsnews.core.domain.entities.NewsEntity;
+import io.droidnewsnews.core.domain.filters.NewsFilter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
