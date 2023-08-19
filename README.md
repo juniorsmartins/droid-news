@@ -10,7 +10,10 @@ Descrição: em construção... aplicação para o seguimento de Comunicação (
 
 ## Índice
   
-1. Requisitos:  
+1. Requisitos [Clique aqui](REQUISITOS.md)  :
+    1. Funcionais;
+    2. Não funcionais;
+    3. Domínio.
    
 2. Arquitetura:
     1. Microservices (no Geral);
@@ -28,5 +31,4 @@ Descrição: em construção... aplicação para o seguimento de Comunicação (
     2. Arquivo de requisições do Postman;
     3. Como testar.
   
-4. Autoria.
-
+5. Autoria.
