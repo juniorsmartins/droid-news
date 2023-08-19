@@ -10,7 +10,7 @@ Descrição: em construção... aplicação para o seguimento de Comunicação (
 
 ## Índice
   
-1. Requisitos [Clique aqui](REQUISITOS.md)  :
+1. [Requisitos](REQUISITOS.md)  :
     1. Funcionais;
     2. Não funcionais;
     3. Domínio.
