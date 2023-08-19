@@ -2,7 +2,10 @@
 
 Nome: Droid-News;  
   
-Descrição: em construção... aplicação para o seguimento de Comunicação (Jornalismo).
+Descrição: em construção... aplicação para o seguimento de Comunicação (Jornalismo).  
+
+- Data de Início: 00/00/0000;  
+- Previsão de Término: 00/00/0000;  
 
 
 ## Índice
