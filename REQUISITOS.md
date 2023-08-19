@@ -147,6 +147,7 @@ Outros
 8. Integrações: 
 > - [ ] Mercado Pago;
 > - [ ] Correios (Cep);
+> - [ ] Receita Federal.
 
 ### Banco de Dados Relacional e Não Relacional (NoSQL)
 - [ ] Banco de dados PostgreSQL;
