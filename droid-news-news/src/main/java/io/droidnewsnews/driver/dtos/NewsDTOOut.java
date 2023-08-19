@@ -1,5 +1,9 @@
 package io.droidnewsnews.driver.dtos;
 
+import io.droidnewsnews.core.domain.entities.NewsUserEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public record NewsDTOOut(
@@ -12,6 +16,8 @@ public record NewsDTOOut(
 
   String caption,
 
-  String body
+  String body,
+
+  List<NewsUserEntity> newsUsers
 ) { }
 
