@@ -15,18 +15,20 @@ Descrição: em construção... aplicação para o seguimento de Comunicação (
     2. Não funcionais;
     3. Domínio.
    
-2. Arquitetura:
+2. Domínio:
+    1. Domain Storytelling (Linguagem Pictográfica);
+    2. Event Storming.
+
+3. Arquitetura:
     1. Microservices (no Geral);
-    2. Arquitetura Ports And Adapters e Arquitetura Limpa (nas APIs Rest);
-    3. Domain Storytelling (Linguagem Pictográfica);
-    4. Event Storming.
+    2. Arquitetura Ports And Adapters e Arquitetura Limpa (nas APIs Rest).
   
-3. Desenvolvimento:
+4. Desenvolvimento:
     1. Tecnologias;
     2. Ferramentas;
     3. Diagramas.
   
-4. Utilização:
+5. Utilização:
     1. Documentação Swagger/OpenAPI;
     2. Arquivo de requisições do Postman;
     3. Como testar.
