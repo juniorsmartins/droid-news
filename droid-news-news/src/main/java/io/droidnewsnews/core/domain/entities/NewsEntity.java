@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -29,5 +31,17 @@ public final class NewsEntity implements Serializable {
   private String caption;
 
   private String body;
+
+  private List<NewsUserEntity> newsUsers = new ArrayList<>();
+
+  public void addNewsUser(NewsUserEntity user) {
+    var lista = new ArrayList<>(this.getNewsUsers());
+    lista.add(user);
+    this.newsUsers = lista;
+  }
+
+  public void removeNewsUser(NewsUserEntity user) {
+    this.newsUsers.remove(user);
+  }
 }
 

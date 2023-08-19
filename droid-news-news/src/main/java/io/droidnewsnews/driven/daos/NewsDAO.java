@@ -53,18 +53,6 @@ public final class NewsDAO implements Serializable {
   private String body;
 
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-  @JoinColumn(name = "curso_id")
   private List<NewsUserDAO> newsUsers = new ArrayList<>();
-
-  @Transient
-  private List<UserEntity> users = new ArrayList<>();
-
-  public void addNewsUser(NewsUserDAO user) {
-    this.newsUsers.add(user);
-  }
-
-  public void removeNewsUser(NewsUserDAO user) {
-    this.newsUsers.remove(user);
-  }
 }
 
