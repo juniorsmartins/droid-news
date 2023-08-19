@@ -33,4 +33,4 @@ Descrição: em construção... aplicação para o seguimento de Comunicação (
     2. Arquivo de requisições do Postman;
     3. Como testar.
   
-5. Autoria.
+5. [Autoria - Junior Martins](https://www.linkedin.com/in/juniorsmartins/)
