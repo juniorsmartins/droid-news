@@ -1,11 +1,14 @@
 package io.droidnewsnews.driver.convertersIn;
 
+import io.droidnewsnews.core.domain.entities.UserEntity;
 import io.droidnewsnews.core.domain.filters.NewsFilter;
 import io.droidnewsnews.core.domain.entities.NewsEntity;
 import io.droidnewsnews.driver.dtos.NewsDTOIn;
 import io.droidnewsnews.driver.dtos.NewsDTOOut;
 import io.droidnewsnews.driver.dtos.NewsDTOUpdate;
 import io.droidnewsnews.driver.dtos.NewsFilterDTO;
+import io.droidnewsnews.driver.dtos.UserInDTO;
+import io.droidnewsnews.driver.dtos.UserOutDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +29,8 @@ public class NewsConverterInImpl implements NewsConverterIn {
       entity.getHat(),
       entity.getTitle(),
       entity.getCaption(),
-      entity.getBody()
+      entity.getBody(),
+      entity.getNewsUsers()
     );
   }
 
@@ -45,6 +49,23 @@ public class NewsConverterInImpl implements NewsConverterIn {
       filterDTO.title(),
       filterDTO.caption(),
       filterDTO.body()
+    );
+  }
+
+  @Override
+  public UserEntity toEntity(UserInDTO dto) {
+    var userEntity = new UserEntity();
+    BeanUtils.copyProperties(dto, userEntity);
+    return userEntity;
+  }
+
+  @Override
+  public UserOutDTO toDTO(UserEntity entity) {
+    return new UserOutDTO(
+      entity.getId(),
+      entity.getFullName(),
+      entity.getEmail(),
+      entity.getPassword()
     );
   }
 }

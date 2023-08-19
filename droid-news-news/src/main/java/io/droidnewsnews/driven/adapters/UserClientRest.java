@@ -1,4 +1,4 @@
-package io.droidnewsnews.core.application.comunication;
+package io.droidnewsnews.driven.adapters;
 
 import io.droidnewsnews.core.domain.entities.UserEntity;
 import io.droidnewsnews.driver.dtos.UserOutDTO;
