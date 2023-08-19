@@ -5,6 +5,7 @@ import io.droidnewsnews.core.domain.entities.NewsUserEntity;
 import io.droidnewsnews.core.domain.entities.UserEntity;
 import io.droidnewsnews.driven.daos.NewsDAO;
 import io.droidnewsnews.driven.daos.NewsUserDAO;
+import io.droidnewsnews.driver.dtos.UserInDTO;
 import io.droidnewsnews.driver.dtos.UserOutDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -44,13 +45,6 @@ public class NewsConverterOutImpl implements NewsConverterOut {
   }
 
   @Override
-  public NewsUserDAO toDAO(UserEntity entity) {
-    var newsUserDAO = new NewsUserDAO();
-    newsUserDAO.setUserId(entity.getId());
-    return newsUserDAO;
-  }
-
-  @Override
   public NewsUserEntity toEntity(NewsUserDAO dao) {
     var entity = new NewsUserEntity();
     BeanUtils.copyProperties(dao, entity);
@@ -62,6 +56,15 @@ public class NewsConverterOutImpl implements NewsConverterOut {
     var dao = new NewsUserDAO();
     BeanUtils.copyProperties(entity, dao);
     return dao;
+  }
+
+  @Override
+  public UserInDTO toInDTO(UserEntity entity) {
+    var userInDTO = new UserInDTO(
+      entity.getFullName(),
+      entity.getEmail(),
+      entity.getPassword());
+    return userInDTO;
   }
 }
 

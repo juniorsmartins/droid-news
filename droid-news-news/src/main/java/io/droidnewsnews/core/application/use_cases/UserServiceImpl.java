@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserInputPort {
 
   @Transactional
   @Override
-  public NewsEntity subscribeUser(UUID newsId, UUID userId) {
+  public NewsEntity subscribeUser(final UUID newsId, final UUID userId) {
 
     var newsEntity = this.newsOutputPort.consult(newsId)
       .orElseThrow(() -> new NewsNotFoundException(newsId));
@@ -65,8 +65,19 @@ public class UserServiceImpl implements UserInputPort {
   }
 
   @Override
-  public UserEntity createUser(UserEntity userEntity, UUID newsId) {
-    return null;
+  public NewsEntity subscribeCreateUser(final UserEntity userEntity, final UUID newsId) {
+
+    var newsEntity = this.newsOutputPort.consult(newsId)
+      .orElseThrow(() -> new NewsNotFoundException(newsId));
+
+    var userFromMicroservice = this.userComunicationPort.create(userEntity);
+
+    var newsUserEntity = this.userOutputPort.save(userFromMicroservice.get().getId());
+
+    newsEntity.addNewsUser(newsUserEntity);
+    this.newsOutputPort.save(newsEntity);
+
+    return newsEntity;
   }
 }
 

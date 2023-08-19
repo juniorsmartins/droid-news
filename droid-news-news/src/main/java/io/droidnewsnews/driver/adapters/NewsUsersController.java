@@ -21,10 +21,8 @@ public interface NewsUsersController {
   ResponseEntity<Object> unsubscribeUser(@PathVariable(name = "newsId") final UUID newsId,
                                          @PathVariable(name = "userId") final UUID userId);
 
-  @PostMapping(path = "/{newsId}")
-  ResponseEntity<?> createUser(@RequestBody @Valid final UserInDTO userInDTO,
-                               @PathVariable(name = "newsId") final UUID newsId);
-
-
+  @PutMapping(path = "/{newsId}/subscribe-user")
+  ResponseEntity<?> subscribeCreateUser(@RequestBody @Valid final UserInDTO userInDTO,
+                                        @PathVariable(name = "newsId") final UUID newsId);
 }
 

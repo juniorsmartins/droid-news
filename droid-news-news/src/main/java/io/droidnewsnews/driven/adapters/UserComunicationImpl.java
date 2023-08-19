@@ -5,6 +5,8 @@ import io.droidnewsnews.core.application.ports.UserComunicationPort;
 import io.droidnewsnews.core.domain.entities.UserEntity;
 import io.droidnewsnews.driven.convertersOut.NewsConverterOut;
 import io.droidnewsnews.driven.daos.NewsUserDAO;
+import io.droidnewsnews.driver.dtos.UserInDTO;
+import io.droidnewsnews.driver.dtos.UserOutDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -31,60 +33,12 @@ public class UserComunicationImpl implements UserComunicationPort {
       .map(this.converter::toEntity);
   }
 
-//  @Override
-//  public Optional<UserEntity> subscribeUser(UserEntity userEntity, UUID newsId) {
-//
-//    var newsDatabase = this.newsOutputPort.consult(newsId);
-//
-//    if (newsDatabase.isPresent()) {
-//      var userDoutroMicroservice = this.userClientRest.buscarPorId(userEntity.getId());
-//
-//      var newsUserDAO = new NewsUserDAO();
-//      newsUserDAO.setUserId(userDoutroMicroservice.getId());
-//
-//      var newsEntity = newsDatabase.get();
-//      newsEntity.addNewsUser(newsUserDAO);
-//      this.newsOutputPort.save(newsEntity);
-//      return Optional.of(userDoutroMicroservice);
-//    }
-//    return Optional.empty();
-//  }
-//
-//  @Override
-//  public Optional<UserEntity> createUser(UserEntity userEntity, UUID newsId) {
-//
-//    var newsDatabase = this.newsOutputPort.consult(newsId);
-//
-//    if (newsDatabase.isPresent()) {
-//      var userDoutroMicroservice = this.userClientRest.create(userEntity);
-//
-//      var newsUserDAO = new NewsUserDAO();
-//      newsUserDAO.setUserId(userDoutroMicroservice.getId());
-//
-//      var newsEntity = newsDatabase.get();
-//      newsEntity.addNewsUser(newsUserDAO);
-//      this.newsOutputPort.save(newsEntity);
-//      return Optional.of(userDoutroMicroservice);
-//    }
-//    return Optional.empty();
-//  }
-//
-//  @Override
-//  public Optional<UserEntity> deleteUser(UserEntity userEntity, UUID newsId) {
-//
-//    var newsDatabase = this.newsOutputPort.consult(newsId);
-//
-//    if (newsDatabase.isPresent()) {
-//      var userDoutroMicroservice = this.userClientRest.buscarPorId(userEntity.getId());
-//
-//      var newsUserDAO = new NewsUserDAO();
-//      newsUserDAO.setUserId(userDoutroMicroservice.getId());
-//
-//      var newsEntity = newsDatabase.get();
-//      newsEntity.removeNewsUser(newsUserDAO);
-//      this.newsOutputPort.save(newsEntity);
-//      return Optional.of(userDoutroMicroservice);
-//    }
-//    return Optional.empty();
-//  }
+  @Override
+  public Optional<UserEntity> create(final UserEntity userEntity) {
+
+    return Optional.of(userEntity)
+      .map(this.converter::toInDTO)
+      .map(this.userClientRest::create)
+      .map(this.converter::toEntity);
+  }
 }

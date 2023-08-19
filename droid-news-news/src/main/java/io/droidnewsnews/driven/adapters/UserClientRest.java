@@ -1,6 +1,7 @@
 package io.droidnewsnews.driven.adapters;
 
 import io.droidnewsnews.core.domain.entities.UserEntity;
+import io.droidnewsnews.driver.dtos.UserInDTO;
 import io.droidnewsnews.driver.dtos.UserOutDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,6 @@ public interface UserClientRest {
   UserOutDTO buscarPorId(@PathVariable(name = "id") UUID id);
 
   @PostMapping
-  UserEntity create(@RequestBody UserEntity userEntity);
+  UserOutDTO create(@RequestBody UserInDTO userInDTO);
 }
 

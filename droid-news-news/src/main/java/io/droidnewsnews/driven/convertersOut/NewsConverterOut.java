@@ -5,6 +5,7 @@ import io.droidnewsnews.core.domain.entities.NewsUserEntity;
 import io.droidnewsnews.core.domain.entities.UserEntity;
 import io.droidnewsnews.driven.daos.NewsDAO;
 import io.droidnewsnews.driven.daos.NewsUserDAO;
+import io.droidnewsnews.driver.dtos.UserInDTO;
 import io.droidnewsnews.driver.dtos.UserOutDTO;
 
 public interface NewsConverterOut {
@@ -15,10 +16,10 @@ public interface NewsConverterOut {
 
   UserEntity toEntity(UserOutDTO userOutDTO);
 
-  NewsUserDAO toDAO(UserEntity entity);
-
   NewsUserEntity toEntity(NewsUserDAO newsUserDAO);
 
   NewsUserDAO toDAO(NewsUserEntity entity);
+
+  UserInDTO toInDTO(UserEntity entity);
 }
 
