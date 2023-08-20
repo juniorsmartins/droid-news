@@ -1,4 +1,4 @@
-FROM amazoncorretto:17.0.8-al2023
+FROM amazoncorretto:17.0.8-al2023 as builder
 
 WORKDIR /droid-news/users
 
@@ -12,7 +12,15 @@ RUN ./mvnw dependency:go-offline
 COPY ./droid-news-users/src ./src
 RUN ./mvnw clean package -DskipTests
 
+
+
+FROM amazoncorretto:17.0.8-al2023
+
+WORKDIR /droid-news
+
+COPY --from=builder /droid-news/users/target/droid-news-users-0.0.1-SNAPSHOT.jar .
+
 EXPOSE 8001
 
-ENTRYPOINT ["java", "-jar", "./target/droid-news-users-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "droid-news-users-0.0.1-SNAPSHOT.jar"]
 
