@@ -63,8 +63,6 @@ Kdroid-news-news/src/main/java/io/droidnewsnews/driven/adapters/NewsJpa.java,4\
 Rdroid-news-news/src/main/java/io/droidnewsnews/driver/adapters/NewsController.java,f\5\f51bb915848c0652df61ebd9173f10723604ca57
 †
 Vdroid-news-news/src/main/java/io/droidnewsnews/driver/adapters/NewsControllerImpl.java,e\6\e6c1b6e7895b4fa266d0e0b155ca0f7ba6a5f181
-š
-jdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/MessageDefault.java,2\0\2085c2635c144e584a511c6a95ddca11f4951324
 ª
 zdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/http_404/UserNotFoundException.java,e\7\e739664e0d0a327d3290dc7ce8ef38afa2c378b9
 ˆ

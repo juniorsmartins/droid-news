@@ -71,8 +71,6 @@ Vdroid-news-news/src/main/java/io/droidnewsnews/driver/adapters/NewsControllerIm
 Xdroid-news-news/src/main/java/io/droidnewsnews/core/application/ports/NewsInputPort.java,f\e\fef8d5752be7151bd0e35aa75b344cfa9a544ced
 ª
 zdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/http_404/UserNotFoundException.java,e\7\e739664e0d0a327d3290dc7ce8ef38afa2c378b9
-š
-jdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/MessageDefault.java,2\0\2085c2635c144e584a511c6a95ddca11f4951324
 w
 Gdroid-news-news/src/main/java/io/droidnewsnews/driven/daos/NewsDAO.java,8\7\87042463d6a56cf5717f7279eb5b10ded43e64f8
 z
