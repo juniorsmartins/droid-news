@@ -10,6 +10,8 @@ public interface UserOutputPort {
 
   NewsUserEntity save(UUID userId);
 
+  Optional<NewsUserEntity> buscarPorId(UUID userId);
+
 //  Optional<UserEntity> subscribeUser(UserEntity userEntity, UUID newsId);
 //
 //  Optional<UserEntity> createUser(UserEntity userEntity, UUID newsId);

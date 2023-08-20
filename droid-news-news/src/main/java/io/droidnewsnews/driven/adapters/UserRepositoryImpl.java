@@ -31,5 +31,12 @@ public class UserRepositoryImpl implements UserOutputPort {
       .map(this.converter::toEntity)
       .orElseThrow();
   }
+
+  @Override
+  public Optional<NewsUserEntity> buscarPorId(UUID userId) {
+
+    return this.newsUserJpa.findByUserId(userId)
+      .map(this.converter::toEntity);
+  }
 }
 

@@ -41,7 +41,9 @@ public final class NewsEntity implements Serializable {
   }
 
   public void removeNewsUser(NewsUserEntity user) {
-    this.newsUsers.remove(user);
+    var lista = new ArrayList<>(this.getNewsUsers());
+    lista.remove(user);
+    this.newsUsers = lista;
   }
 }
 

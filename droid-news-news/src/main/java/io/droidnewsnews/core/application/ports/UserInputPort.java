@@ -10,8 +10,8 @@ public interface UserInputPort {
 
   NewsEntity subscribeUser(UUID newsId, UUID userId);
 
-  UserEntity createUser(UserEntity userEntity, UUID newsId);
+  void unsubscribeUser(UUID newsId, UUID userId);
 
-  UserEntity deleteUser(UserEntity userEntity, UUID newsId);
+  NewsEntity subscribeCreateUser(UserEntity userEntity, UUID newsId);
 }
 

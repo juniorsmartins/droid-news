@@ -36,13 +36,21 @@ public final class NewsUsersControllerImpl implements NewsUsersController {
   }
 
   @Override
-  public ResponseEntity<?> createUser(UserInDTO userInDTO, UUID newsId) {
-    return null;
+  public ResponseEntity<Object> unsubscribeUser(final UUID newsId, final UUID userId) {
+
+    this.userInputPort.unsubscribeUser(newsId, userId);
+    return this.presenter.delete();
   }
 
   @Override
-  public ResponseEntity<?> deleteUser(UserInDTO userInDTO, UUID newsId) {
-    return null;
+  public ResponseEntity<Object> subscribeCreateUser(final UserInDTO userInDTO, final UUID newsId) {
+
+    return Optional.of(userInDTO)
+      .map(this.converter::toEntity)
+      .map(entity -> this.userInputPort.subscribeCreateUser(entity, newsId))
+      .map(this.converter::toDTO)
+      .map(this.presenter::put)
+      .orElseThrow();
   }
 }
 
