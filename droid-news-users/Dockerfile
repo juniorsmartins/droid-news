@@ -22,5 +22,5 @@ COPY --from=builder /droid-news/users/target/droid-news-users-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8001
 
-ENTRYPOINT ["java", "-jar", "droid-news-users-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "droid-news-users-0.0.1-SNAPSHOT.jar"]
 
