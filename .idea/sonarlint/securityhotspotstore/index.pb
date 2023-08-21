@@ -87,8 +87,6 @@ y
 Idroid-news-news/src/main/java/io/droidnewsnews/driver/dtos/UserInDTO.java,d\8\d8725264a68dc53462ef1a74575c34b6b35837be
 É
 Sdroid-news-news/src/main/java/io/droidnewsnews/core/domain/entities/UserEntity.java,6\e\6e9991b4d497f8758f1d0f62d916df3a656a72c8
-è
-_droid-news-news/src/main/java/io/droidnewsnews/core/application/ports/UserComunicationPort.java,f\e\fea16afa8969f14a1f425b6e2c0955e788a194bd
 â
 Ydroid-news-news/src/main/java/io/droidnewsnews/core/application/ports/UserOutputPort.java,e\1\e1dec27c204a4eb776a082e17d75983288359a64
 ã
@@ -107,9 +105,11 @@ Xdroid-news-news/src/main/java/io/droidnewsnews/driven/adapters/UserComunication
 Vdroid-news-news/src/main/java/io/droidnewsnews/driven/adapters/UserRepositoryImpl.java,b\6\b62b25adf99565730c7b240b15b97b3f1d57a6f4
 ì
 cdroid-news-users/src/main/java/oi/droidnewsusers/interface_adapters/controllers/UserController.java,2\3\235d9755460754801168c1754b1f5481b5ba0a37
-Ç
-Rdroid-news-news/src/main/java/io/droidnewsnews/driven/adapters/UserClientRest.java,4\2\425f02e66d10105935ab2e90fb53a97e40604940
 é
 ^droid-news-news/src/main/java/io/droidnewsnews/core/application/use_cases/UserServiceImpl.java,1\f\1f080affdd72a99add54f3cec675148cb0ba8717
 J
 src/main/java/oi/Main.java,3\c\3cce5630882342ad9b4f41036519b9c3a5c2ab4b
+è
+_droid-news-news/src/main/java/io/droidnewsnews/core/application/ports/UserComunicationPort.java,f\e\fea16afa8969f14a1f425b6e2c0955e788a194bd
+E
+droid-news-users/mvnw,3\c\3c29e58ac77c5e8ac611952d970c43b0c78d360f
