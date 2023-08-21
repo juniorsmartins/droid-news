@@ -6,21 +6,22 @@ COPY ./pom.xml /droid-news
 COPY ./droid-news-users/.mvn ./.mvn
 COPY ./droid-news-users/mvnw .
 COPY ./droid-news-users/pom.xml .
-#RUN ./mvnw clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
-RUN ./mvnw dependency:go-offline
+RUN ./mvnw clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
+#RUN ./mvnw dependency:go-offline
 
 COPY ./droid-news-users/src ./src
 RUN ./mvnw clean package -DskipTests
 
 
-
 FROM amazoncorretto:17.0.8-al2023
 
 WORKDIR /droid-news
+RUN mkdir ./logs
 
 COPY --from=builder /droid-news/users/target/droid-news-users-0.0.1-SNAPSHOT.jar .
 
-EXPOSE 8001
+ENV PORT 8000
+EXPOSE $PORT
 
 CMD ["java", "-jar", "droid-news-users-0.0.1-SNAPSHOT.jar"]
 

@@ -13,7 +13,6 @@ COPY ./droid-news-news/src ./src
 RUN ./mvnw clean package -DskipTests
 
 
-
 FROM amazoncorretto:17.0.8-al2023
 
 WORKDIR /droid-news
