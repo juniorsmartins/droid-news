@@ -113,3 +113,7 @@ J
 _droid-news-news/src/main/java/io/droidnewsnews/core/application/ports/UserComunicationPort.java,f\e\fea16afa8969f14a1f425b6e2c0955e788a194bd
 E
 droid-news-users/mvnw,3\c\3c29e58ac77c5e8ac611952d970c43b0c78d360f
+š
+jdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/MessageDefault.java,2\0\2085c2635c144e584a511c6a95ddca11f4951324
+D
+droid-news-news/mvnw,8\6\868b248853b1653e08cda9e06f533eeaba6ccc21
