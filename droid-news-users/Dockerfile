@@ -1,10 +1,11 @@
 FROM amazoncorretto:17.0.8-al2023 as builder
 
-WORKDIR /droid-news/users
-
+ARG DROID_NEWS=droid-news
 ARG DROID_NEWS_USERS=droid-news-users
 
-COPY ./pom.xml /droid-news
+WORKDIR /$DROID_NEWS/users
+
+COPY ./pom.xml /$DROID_NEWS
 COPY ./$DROID_NEWS_USERS/.mvn ./.mvn
 COPY ./$DROID_NEWS_USERS/mvnw .
 COPY ./$DROID_NEWS_USERS/pom.xml .

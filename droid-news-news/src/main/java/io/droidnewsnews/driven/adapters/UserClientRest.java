@@ -1,6 +1,5 @@
 package io.droidnewsnews.driven.adapters;
 
-import io.droidnewsnews.core.domain.entities.UserEntity;
 import io.droidnewsnews.driver.dtos.UserInDTO;
 import io.droidnewsnews.driver.dtos.UserOutDTO;
 import org.springframework.cloud.openfeign.FeignClient;
