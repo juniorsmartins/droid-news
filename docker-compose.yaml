@@ -31,7 +31,9 @@ services:
 
   droid-news-users:
     container_name: users
-    image: droid-news-users:v1
+    build:
+      context: ./
+      dockerfile: ./droid-news-users/Dockerfile
     ports:
       - "8001:8001"
     env_file: .\droid-news-users\.env
@@ -43,7 +45,9 @@ services:
 
   droid-news-news:
     container_name: news
-    image: droid-news-news:v1
+    build:
+      context: ./
+      dockerfile: ./droid-news-news/Dockerfile
     ports:
       - "8002:8002"
     env_file: .\droid-news-news\.env
@@ -52,6 +56,7 @@ services:
       - rede-droid
     depends_on:
       - mysql8
+      - droid-news-users
 
 volumes:
   data-mysql:
@@ -61,3 +66,4 @@ volumes:
 
 networks:
   rede-droid:
+    name: rede-droid
