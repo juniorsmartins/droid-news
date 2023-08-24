@@ -36,7 +36,7 @@ services:
       dockerfile: ./droid-news-users/Dockerfile
     ports:
       - "8001:8001"
-    env_file: .\droid-news-users\.env
+    env_file: ./droid-news-users/.env
     restart: always
     networks:
       - rede-droid
@@ -50,7 +50,7 @@ services:
       dockerfile: ./droid-news-news/Dockerfile
     ports:
       - "8002:8002"
-    env_file: .\droid-news-news\.env
+    env_file: ./droid-news-news/.env
     restart: always
     networks:
       - rede-droid
