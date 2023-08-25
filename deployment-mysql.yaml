@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mysql8
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: mysql8
@@ -13,13 +13,13 @@ spec:
         app: mysql8
     spec:
       containers:
-      - image: mysql:8.0.18
-        name: mysql8
-        ports:
-        - containerPort: 3306
-        env: 
-          - name: MYSQL_ROOT_PASSWORD
-            value: mysql
-          - name: MYSQL_DATABASE
-            value: droid_news
+        - image: mysql:8.0.18
+          name: mysql8
+          ports:
+            - containerPort: 3306
+          env: 
+            - name: MYSQL_ROOT_PASSWORD
+              value: mysql
+            - name: MYSQL_DATABASE
+              value: droid_news
 
