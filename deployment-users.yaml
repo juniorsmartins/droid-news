@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: droid-news-news
+  name: droid-news-users
 spec: 
-  replicas: 1
+  replicas: 3
   selector: 
     matchLabels: 
-      app: droid-news-news
+      app: droid-news-users
   template: 
     metadata: 
       labels: 
-        app: droid-news-news
+        app: droid-news-users
     spec: 
       containers: 
       - image: 957817/droid-news-users:latest
