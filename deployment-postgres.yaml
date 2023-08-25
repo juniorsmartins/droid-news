@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: postgres16
+spec: 
+  replicas: 3
+  selector: 
+    matchLabels: 
+      app: postgres16
+  template: 
+    metadata: 
+      labels: 
+        app: postgres16
+    spec: 
+      containers: 
+      - image: postgres:16beta3-alpine3.18
+        name: postgres16
+        ports: 
+        - containerPort: 5432
+        env: 
+          - name: POSTGRES_PASSWORD
+            value: postgres
+          - name: POSTGRES_DB
+            value: droid_users
+

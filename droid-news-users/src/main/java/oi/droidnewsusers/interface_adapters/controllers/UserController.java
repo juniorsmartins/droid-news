@@ -38,5 +38,10 @@ public interface UserController {
     @DeleteMapping(path = "/{id}")
     ResponseEntity<Object> deleteById(UUID id);
   }
+
+  interface UserControllerQuebrar {
+    @GetMapping(path = "/quebrar")
+    ResponseEntity<Object> quebrar();
+  }
 }
 
