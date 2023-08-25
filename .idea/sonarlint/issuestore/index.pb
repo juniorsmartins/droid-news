@@ -117,3 +117,11 @@ E
 jdroid-news-users/src/main/java/oi/droidnewsusers/application_business_rules/exceptions/MessageDefault.java,2\0\2085c2635c144e584a511c6a95ddca11f4951324
 D
 droid-news-news/mvnw,8\6\868b248853b1653e08cda9e06f533eeaba6ccc21
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+H
+droid-news-users/pom.xml,1\2\1214ac49770b889c9ca6fa541046480a747c90b6
+G
+droid-news-news/pom.xml,d\3\d31fa2423abed09064d36c9ae5adb1ea5c331478
+‚
+Rdroid-news-news/src/main/java/io/droidnewsnews/driven/adapters/UserClientRest.java,4\2\425f02e66d10105935ab2e90fb53a97e40604940
