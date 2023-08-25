@@ -1,4 +1,4 @@
-FROM amazoncorretto:17.0.8-al2023 as builder
+FROM amazoncorretto:17.0.8-al2023 AS builder
 
 ARG DROID_NEWS=droid-news
 ARG DROID_NEWS_NEWS=droid-news-news

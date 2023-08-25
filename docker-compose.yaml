@@ -36,7 +36,14 @@ services:
       dockerfile: ./droid-news-users/Dockerfile
     ports:
       - "8001:8001"
-    env_file: ./droid-news-users/.env
+    # env_file: ./droid-news-users/.env
+    environment:
+      PORT: 8001
+      DB_HOST: postgres16:5432
+      DB_DATABASE: droid-users
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      NEWS_URL: news:8002
     restart: always
     networks:
       - rede-droid
@@ -50,7 +57,14 @@ services:
       dockerfile: ./droid-news-news/Dockerfile
     ports:
       - "8002:8002"
-    env_file: ./droid-news-news/.env
+    # env_file: ./droid-news-news/.env
+    environment:
+      PORT: 8002
+      DB_HOST: mysql8:3306
+      DB_DATABASE: droid-news
+      DB_USERNAME: root 
+      DB_PASSWORD: mysql 
+      USERS_URL: users:8001
     restart: always
     networks:
       - rede-droid

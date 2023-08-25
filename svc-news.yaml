@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata: 
-  name: droid-news-users
+  name: droid-news-news
 spec: 
   ports: 
-    - port: 8001
+    - port: 8002
       protocol: TCP
-      targetPort: 8001
+      targetPort: 8002
   selector: 
-    app: droid-news-users
+    app: droid-news-news
   type: LoadBalancer
 

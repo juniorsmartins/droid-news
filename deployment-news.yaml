@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: droid-news-news 
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: droid-news-news
+  template: 
+    metadata: 
+      labels: 
+        app: droid-news-news
+    spec: 
+      containers: 
+        - name: news 
+          image: 957817/droid-news-news:latest 
+          ports:
+            - containerPort: 8002
+          env: 
+            - name: PORT
+              value: 8002
+            - name: DB_HOST
+              value: mysql8:3306
+            - name: DB_DATABASE
+              value: droid-news
+            - name: DB_USERNAME
+              value: root
+            - name: DB_PASSWORD
+              value: mysql
+            - name: USERS_URL
+              value: users:8001
+

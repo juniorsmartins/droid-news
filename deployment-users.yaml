@@ -3,7 +3,7 @@ kind: Deployment
 metadata: 
   name: droid-news-users
 spec: 
-  replicas: 3
+  replicas: 1
   selector: 
     matchLabels: 
       app: droid-news-users
@@ -13,9 +13,22 @@ spec:
         app: droid-news-users
     spec: 
       containers: 
-      - image: 957817/droid-news-users:latest
-        name: users
-        ports:
-        - containerPort: 8001
+        - name: users
+          image: 957817/droid-news-users:latest
+          ports:
+            - containerPort: 8001
+          env:
+            - name: PORT
+              value: 8001
+            - name: DB_HOST
+              value: postgres16:5432
+            - name: DB_DATABASE
+              value: droid_users
+            - name: DB_USERNAME
+              value: postgres
+            - name: DB_PASSWORD
+              value: postgres
+            - name: NEWS_URL
+              value: news:8002
 
 
