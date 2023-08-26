@@ -3,11 +3,11 @@ kind: Service
 metadata: 
   name: droid-news-news
 spec: 
-  ports: 
+  type: LoadBalancer
+  ports:
     - port: 8002
       protocol: TCP
       targetPort: 8002
-  selector: 
+  selector:
     app: droid-news-news
-  type: LoadBalancer
 
