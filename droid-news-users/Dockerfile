@@ -9,9 +9,7 @@ COPY ./pom.xml /$DROID_NEWS
 COPY ./$DROID_NEWS_USERS/.mvn ./.mvn
 COPY ./$DROID_NEWS_USERS/mvnw .
 COPY ./$DROID_NEWS_USERS/pom.xml .
-#RUN chmod +x ./mvnw
 RUN ./mvnw clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
-#RUN ./mvnw dependency:go-offline
 
 COPY ./$DROID_NEWS_USERS/src ./src
 RUN ./mvnw clean package -DskipTests
