@@ -19,15 +19,33 @@ spec:
             - containerPort: 8002
           env:
             - name: PORT
-              value: "8002"
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-news
+                  key: port
             - name: DB_HOST
-              value: mysql8:3306
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-news
+                  key: db_host
             - name: DB_DATABASE
-              value: droid_news
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-news
+                  key: database
             - name: DB_USERNAME
-              value: root
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-news
+                  key: username
             - name: DB_PASSWORD
-              value: mysql
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-news
+                  key: password
             - name: USERS_URL
-              value: users:8001
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-news
+                  key: users_url
 

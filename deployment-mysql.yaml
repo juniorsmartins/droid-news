@@ -19,9 +19,15 @@ spec:
             - containerPort: 3306
           env: 
             - name: MYSQL_ROOT_PASSWORD
-              value: mysql
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-news
+                  key: password
             - name: MYSQL_DATABASE
-              value: droid_news
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-news
+                  key: database
           volumeMounts:
             - name: data-mysql
               mountPath: /var/lib/mysql

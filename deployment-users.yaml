@@ -19,16 +19,34 @@ spec:
             - containerPort: 8001
           env:
             - name: PORT
-              value: "8001"
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-users
+                  key: port
             - name: DB_HOST
-              value: postgres16:5432
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-users
+                  key: db_host
             - name: DB_DATABASE
-              value: droid_users
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-users
+                  key: database
             - name: DB_USERNAME
-              value: postgres
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-users
+                  key: username
             - name: DB_PASSWORD
-              value: postgres
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-users
+                  key: password
             - name: NEWS_URL
-              value: news:8002
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-droid-news-users
+                  key: news_url
 
 
