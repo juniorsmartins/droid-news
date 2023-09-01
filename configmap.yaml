@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: configmap-droid-news-users
+  name: configmap-users
 data:
   port: "8001"
   db_host: postgres16:5432
@@ -14,7 +14,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: configmap-droid-news-news
+  name: configmap-news
 data:
   port: "8002"
   db_host: mysql8:3306

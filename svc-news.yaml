@@ -9,5 +9,5 @@ spec:
       protocol: TCP
       targetPort: 8002
   selector:
-    app: droid-news-news
+    app: news
 

@@ -1,51 +1,51 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: droid-news-news
+  name: news
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: droid-news-news
+      app: news
   template:
     metadata:
       labels:
-        app: droid-news-news
+        app: news
     spec:
       containers:
         - name: news
-          image: 957817/droid-news-news:latest
+          image: 957817/droid-news:latest
           ports:
             - containerPort: 8002
           env:
             - name: PORT
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-droid-news-news
+                  name: configmap-news
                   key: port
             - name: DB_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-droid-news-news
+                  name: configmap-news
                   key: db_host
             - name: DB_DATABASE
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-droid-news-news
+                  name: configmap-news
                   key: database
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: secret-droid-news-news
+                  name: secret-news
                   key: username
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: secret-droid-news-news
+                  name: secret-news
                   key: password
             - name: USERS_URL
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-droid-news-news
+                  name: configmap-news
                   key: users_url
 
