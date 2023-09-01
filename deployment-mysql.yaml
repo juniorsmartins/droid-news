@@ -21,7 +21,7 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: configmap-droid-news-news
+                  name: secret-droid-news-news
                   key: password
             - name: MYSQL_DATABASE
               valueFrom:

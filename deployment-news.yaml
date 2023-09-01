@@ -36,12 +36,12 @@ spec:
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: configmap-droid-news-news
+                  name: secret-droid-news-news
                   key: username
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: configmap-droid-news-news
+                  name: secret-droid-news-news
                   key: password
             - name: USERS_URL
               valueFrom:
