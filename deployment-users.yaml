@@ -35,12 +35,12 @@ spec:
                   key: database
             - name: DB_USERNAME
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: configmap-droid-news-users
                   key: username
             - name: DB_PASSWORD
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: configmap-droid-news-users
                   key: password
             - name: NEWS_URL

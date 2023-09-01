@@ -6,8 +6,8 @@ data:
   port: "8001"
   db_host: postgres16:5432
   database: droid_users
-  username: postgres
-  password: postgres
+  # username: postgres
+  # password: postgres
   news_url: news:8002
 
 ---
@@ -19,7 +19,7 @@ data:
   port: "8002"
   db_host: mysql8:3306
   database: droid_news
-  username: root
-  password: mysql
+  # username: root
+  # password: mysql
   users_url: users:8001
 

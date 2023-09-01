@@ -20,7 +20,7 @@ spec:
           env: 
             - name: POSTGRES_PASSWORD
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: configmap-droid-news-users
                   key: password
             - name: POSTGRES_DB
