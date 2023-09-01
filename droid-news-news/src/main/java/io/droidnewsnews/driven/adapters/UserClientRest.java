@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import io.droidnewsnews.driver.dtos.UserInDTO;
 import io.droidnewsnews.driver.dtos.UserOutDTO;
 
-@FeignClient(name = "news")
+@FeignClient(name = "users")
 public interface UserClientRest {
 
   @GetMapping(path = "/api/v1/users/{id}")
