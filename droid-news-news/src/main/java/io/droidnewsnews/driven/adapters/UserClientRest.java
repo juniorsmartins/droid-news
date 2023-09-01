@@ -1,22 +1,23 @@
 package io.droidnewsnews.driven.adapters;
 
-import io.droidnewsnews.driver.dtos.UserInDTO;
-import io.droidnewsnews.driver.dtos.UserOutDTO;
+import java.util.UUID;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.UUID;
+import io.droidnewsnews.driver.dtos.UserInDTO;
+import io.droidnewsnews.driver.dtos.UserOutDTO;
 
-@FeignClient(name = "users", url = "${droid.news.users.url}/api/v1/users")
+@FeignClient(name = "news")
 public interface UserClientRest {
 
-  @GetMapping(path = "/{id}")
+  @GetMapping(path = "/api/v1/users/{id}")
   UserOutDTO buscarPorId(@PathVariable(name = "id") UUID id);
 
-  @PostMapping
+  @PostMapping(path = "/api/v1/users")
   UserOutDTO create(@RequestBody UserInDTO userInDTO);
 }
 

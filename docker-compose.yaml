@@ -70,7 +70,7 @@ services:
       - rede-droid
     depends_on:
       - mysql8
-      - droid-news-users
+      - users
 
 volumes:
   data-mysql:
