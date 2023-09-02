@@ -1,19 +1,20 @@
 package oi.droidnewsusers.interface_adapters.controllers;
 
-import oi.droidnewsusers.application_business_rules.use_cases.UserServiceBuscarPorId;
-import oi.droidnewsusers.interface_adapters.converters.ConverterEntityToDTOOut;
-import oi.droidnewsusers.interface_adapters.dtos.UserOutDTO;
-import oi.droidnewsusers.interface_adapters.gateways.UserGatewayBuscarPorId;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-import java.util.UUID;
+import oi.droidnewsusers.application_business_rules.use_cases.UserServiceBuscarPorId;
+import oi.droidnewsusers.interface_adapters.converters.ConverterEntityToDTOOut;
+import oi.droidnewsusers.interface_adapters.dtos.UserOutDTO;
+import oi.droidnewsusers.interface_adapters.gateways.UserGatewayBuscarPorId;
 
 @RestController
-@RequestMapping(path = "/api/v1/users")
+@RequestMapping
 public final class UserControllerBuscarPorIdImpl implements UserController.UserControllerBuscarPorId {
 
   private final UserServiceBuscarPorId userServiceBuscarPorId;

@@ -1,19 +1,20 @@
 package io.droidnewsnews.driver.adapters;
 
-import io.droidnewsnews.core.application.ports.UserInputPort;
-import io.droidnewsnews.driver.convertersIn.NewsConverterIn;
-import io.droidnewsnews.driver.dtos.UserInDTO;
-import io.droidnewsnews.driver.presenters.Presenter;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-import java.util.UUID;
+import io.droidnewsnews.core.application.ports.UserInputPort;
+import io.droidnewsnews.driver.convertersIn.NewsConverterIn;
+import io.droidnewsnews.driver.dtos.UserInDTO;
+import io.droidnewsnews.driver.presenters.Presenter;
 
 @RestController
-@RequestMapping(path = "/api/v1/news")
+@RequestMapping
 public final class NewsUsersControllerImpl implements NewsUsersController {
 
   @Autowired

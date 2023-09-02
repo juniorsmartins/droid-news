@@ -1,12 +1,8 @@
 package io.droidnewsnews.driver.adapters;
 
-import io.droidnewsnews.core.application.ports.NewsInputPort;
-import io.droidnewsnews.driver.convertersIn.NewsConverterIn;
-import io.droidnewsnews.driver.dtos.NewsDTOIn;
-import io.droidnewsnews.driver.dtos.NewsDTOUpdate;
-import io.droidnewsnews.driver.dtos.NewsFilterDTO;
-import io.droidnewsnews.driver.presenters.Presenter;
-import jakarta.validation.Valid;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -17,11 +13,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-import java.util.UUID;
+import io.droidnewsnews.core.application.ports.NewsInputPort;
+import io.droidnewsnews.driver.convertersIn.NewsConverterIn;
+import io.droidnewsnews.driver.dtos.NewsDTOIn;
+import io.droidnewsnews.driver.dtos.NewsDTOUpdate;
+import io.droidnewsnews.driver.dtos.NewsFilterDTO;
+import io.droidnewsnews.driver.presenters.Presenter;
+import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(path = "/api/v1/news")
+@RequestMapping
 public final class NewsControllerImpl implements NewsController {
 
   @Autowired

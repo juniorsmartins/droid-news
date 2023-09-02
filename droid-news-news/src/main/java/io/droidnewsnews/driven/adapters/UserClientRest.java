@@ -14,10 +14,10 @@ import io.droidnewsnews.driver.dtos.UserOutDTO;
 @FeignClient(name = "users")
 public interface UserClientRest {
 
-  @GetMapping(path = "/api/v1/users/{id}")
+  @GetMapping(path = "/{id}")
   UserOutDTO buscarPorId(@PathVariable(name = "id") UUID id);
 
-  @PostMapping(path = "/api/v1/users")
+  @PostMapping
   UserOutDTO create(@RequestBody UserInDTO userInDTO);
 }
 
