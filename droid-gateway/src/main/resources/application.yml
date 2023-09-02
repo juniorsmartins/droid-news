@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: users
+          uri: lb://users
+          predicates:
+            Path=/api/v1/users/**
+          filters:
+            - stripPrefix=3
+        - id: news
+          uri: lb://news
+          predicates:
+            Path=/api/v1/news/**
+          filters:
+            - stripPrefix=3
+
