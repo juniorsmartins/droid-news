@@ -5,13 +5,13 @@ spring:
         - id: users
           uri: lb://users
           predicates:
-            Path=/api/v1/users/**
+            - Path=/api/v1/users/**
           filters:
-            - stripPrefix=3
+            - StripPrefix=3
         - id: news
           uri: lb://news
           predicates:
-            Path=/api/v1/news/**
+            - Path=/api/v1/news/**
           filters:
-            - stripPrefix=3
+            - StripPrefix=3
 
