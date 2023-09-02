@@ -1,5 +1,13 @@
 package oi.droidnewsusers.interface_adapters.controllers;
 
+import java.net.URI;
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import jakarta.validation.Valid;
 import oi.droidnewsusers.application_business_rules.use_cases.UserServiceCreate;
 import oi.droidnewsusers.interface_adapters.converters.ConverterDTOInToEntity;
@@ -7,16 +15,9 @@ import oi.droidnewsusers.interface_adapters.converters.ConverterEntityToDTOOut;
 import oi.droidnewsusers.interface_adapters.dtos.UserInDTO;
 import oi.droidnewsusers.interface_adapters.dtos.UserOutDTO;
 import oi.droidnewsusers.interface_adapters.gateways.UserGatewaySave;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.net.URI;
-import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/api/v1/users")
+@RequestMapping
 public final class UserControllerCreateImpl implements UserController.UserControllerCreate {
 
   private final UserServiceCreate userServiceCreate;

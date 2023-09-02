@@ -1,15 +1,15 @@
 package io.droidnewsnews.driver.adapters;
 
-import io.droidnewsnews.driver.dtos.UserInDTO;
-import jakarta.validation.Valid;
+import java.util.UUID;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.UUID;
+import io.droidnewsnews.driver.dtos.UserInDTO;
+import jakarta.validation.Valid;
 
 public interface NewsUsersController {
 
