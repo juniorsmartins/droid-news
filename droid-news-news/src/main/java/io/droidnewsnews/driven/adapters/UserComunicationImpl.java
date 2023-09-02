@@ -1,26 +1,20 @@
 package io.droidnewsnews.driven.adapters;
 
-import io.droidnewsnews.core.application.ports.NewsOutputPort;
-import io.droidnewsnews.core.application.ports.UserComunicationPort;
-import io.droidnewsnews.core.domain.entities.UserEntity;
-import io.droidnewsnews.driven.convertersOut.NewsConverterOut;
-import io.droidnewsnews.driven.daos.NewsUserDAO;
-import io.droidnewsnews.driver.dtos.UserInDTO;
-import io.droidnewsnews.driver.dtos.UserOutDTO;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-import java.util.UUID;
+import io.droidnewsnews.core.application.ports.UserComunicationPort;
+import io.droidnewsnews.core.domain.entities.UserEntity;
+import io.droidnewsnews.driven.convertersOut.NewsConverterOut;
 
 @Component
 public class UserComunicationImpl implements UserComunicationPort {
 
   @Autowired
   private NewsConverterOut converter;
-
-  @Autowired
-  private NewsOutputPort newsOutputPort;
 
   @Autowired
   private UserClientRest userClientRest;

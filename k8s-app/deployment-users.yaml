@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: users
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: users
+  template: 
+    metadata: 
+      labels: 
+        app: users
+    spec: 
+      containers: 
+        - name: users
+          image: 957817/droid-users:latest
+          ports:
+            - containerPort: 8001
+          env:
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: MY_POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-users
+                  key: port
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-users
+                  key: db_host
+            - name: DB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-users
+                  key: database
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secret-users
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-users
+                  key: password
+            - name: NEWS_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-users
+                  key: news_url
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8001
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 20
+            timeoutSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8001
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 10
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "400m"
+            limits:
+              memory: "800Mi"
+              cpu: "500m"
+
