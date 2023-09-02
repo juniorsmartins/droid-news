@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: news
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: news
+  template:
+    metadata:
+      labels:
+        app: news
+    spec:
+      containers:
+        - name: news
+          image: 957817/droid-news:latest
+          ports:
+            - containerPort: 8002
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-news
+                  key: port
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-news
+                  key: db_host
+            - name: DB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-news
+                  key: database
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secret-news
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-news
+                  key: password
+            - name: USERS_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-news
+                  key: users_url
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8002
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 20
+            timeoutSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8002
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 10
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "400m"
+            limits:
+              memory: "800Mi"
+              cpu: "500m"
+
