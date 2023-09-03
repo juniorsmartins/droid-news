@@ -21,6 +21,7 @@
         <module>droid-news-news</module>
         <module>droid-webscraping</module>
         <module>droid-gateway</module>
+        <module>droid-black</module>
     </modules>
 
     <properties>
