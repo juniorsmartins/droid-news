@@ -1,4 +1,4 @@
-package io.droidblue.application.core.domain;
+package io.droidblue.adapters.out.client.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public final class Address {
+public final class AddressResponse {
   
   private String street;
 
@@ -19,4 +19,3 @@ public final class Address {
   
   private String state;
 }
-

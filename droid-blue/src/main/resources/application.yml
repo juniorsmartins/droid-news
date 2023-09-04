@@ -1,12 +1,34 @@
-spring.application.name=blue
-server.port=${PORT:8004}
+blue:
+  client:
+    address:
+      url: http://localhost:8082/addresses
 
-spring.cloud.kubernetes.secrets.enable-api=true
-spring.cloud.kubernetes.discovery.all-namespaces=true
+spring:
+  application:
+    name: blue
+  cloud:
+    kubernetes:
+      secrets:
+        enable-api: true
+      discovery:
+        all-namespaces: true
 
-management.endpoints.web.exposure.include=*
-management.endpoint.health.show-details=always
-management.endpoint.health.probes.enabled=true
-management.health.livenessstate.enabled=true
-management.health.readinessstate.enabled=true
+server:
+  port: ${PORT:8004}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
 
