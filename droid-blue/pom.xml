@@ -35,6 +35,12 @@
 			<artifactId>spring-kafka</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<version>4.0.4</version>
+		</dependency>
+
 
 		<!-- ANOTAÇÕES -->
 		<dependency>
@@ -57,6 +63,39 @@
 			<optional>true</optional>
 		</dependency>
 
+		<dependency>
+				<groupId>org.mapstruct</groupId>
+				<artifactId>mapstruct</artifactId>
+				<version>1.5.5.Final</version>
+		</dependency>
+
+
+		<!-- MONITORAMENTO -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+
+		<!-- INFRA -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-kubernetes-client</artifactId>
+			<version>3.0.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-kubernetes-client-config</artifactId>
+			<version>3.0.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-kubernetes-client-loadbalancer</artifactId>
+			<version>3.0.4</version>
+		</dependency>
+
 
 		<!-- DATABASE -->
 		<dependency>
@@ -64,7 +103,7 @@
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 				
-				
+
 		<!-- TESTS -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
