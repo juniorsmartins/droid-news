@@ -70,7 +70,19 @@ services:
       - rede-droid
     depends_on:
       - mysql8
-      - users
+      - droid-news-users
+
+  droid-black:
+    container_name: black
+    build:
+      context: ./
+      dockerfile: ./droid-black/Dockerfile
+    ports:
+      - "8003:8003"
+    restart: always
+    networks:
+      - rede-droid
+
 
 volumes:
   data-mysql:
