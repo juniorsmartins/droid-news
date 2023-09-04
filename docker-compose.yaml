@@ -79,7 +79,8 @@ services:
       dockerfile: ./droid-black/Dockerfile
     ports:
       - "8003:8003"
-    restarts:
+    restart: always
+    networks:
       - rede-droid
 
 
