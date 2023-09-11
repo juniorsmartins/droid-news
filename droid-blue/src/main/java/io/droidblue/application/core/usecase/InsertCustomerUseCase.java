@@ -3,11 +3,12 @@ package io.droidblue.application.core.usecase;
 import org.springframework.stereotype.Service;
 
 import io.droidblue.application.core.domain.Customer;
+import io.droidblue.application.ports.in.InsertCustomerInputPort;
 import io.droidblue.application.ports.out.FindAddressByZipCodeOutputPort;
 import io.droidblue.application.ports.out.InsertCustomerOutputPort;
 
 @Service
-public final class InsertCustomerUseCase {
+public final class InsertCustomerUseCase implements InsertCustomerInputPort {
 
   private final FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort;
 
@@ -19,6 +20,7 @@ public final class InsertCustomerUseCase {
     this.insertCustomerOutputPort = insertCustomerOutputPort;
   }
   
+  @Override
   public void insert(Customer customer, String zipCode) {
 
     var address = this.findAddressByZipCodeOutputPort.find(zipCode);

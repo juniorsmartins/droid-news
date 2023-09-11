@@ -1,4 +1,4 @@
-package io.droidblue.adapters.out.client.repository.entity;
+package io.droidblue.adapters.out.repository.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
