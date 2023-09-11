@@ -4,6 +4,11 @@ blue:
       url: http://localhost:8082/addresses
 
 spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/droid_blue
+
+spring:
   application:
     name: blue
   cloud:

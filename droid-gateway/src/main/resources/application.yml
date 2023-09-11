@@ -14,4 +14,10 @@ spring:
             - Path=/api/v1/news/**
           filters:
             - StripPrefix=3
+        - id: blue
+          uri: lb://blue
+          predicates:
+            - Path=/api/v1/blue/**
+          filters:
+            - StripPrefix=3
 
