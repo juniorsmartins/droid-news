@@ -2,6 +2,7 @@ package io.droidblue.adapters.out;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import io.droidblue.adapters.out.client.FindAddressByZipCodeClient;
@@ -12,15 +13,11 @@ import io.droidblue.application.ports.out.FindAddressByZipCodeOutputPort;
 @Component
 public class FindAddressByZipCodeAdapter implements FindAddressByZipCodeOutputPort {
 
-  private final FindAddressByZipCodeClient findAddressByZipCodeClient;
+  @Autowired
+  private FindAddressByZipCodeClient findAddressByZipCodeClient;
 
-  private final AddressResponseMapper addressResponseMapper;
-
-  public FindAddressByZipCodeAdapter(FindAddressByZipCodeClient findAddressByZipCodeClient, 
-                                     AddressResponseMapper addressResponseMapper) {
-    this.findAddressByZipCodeClient = findAddressByZipCodeClient;
-    this.addressResponseMapper = addressResponseMapper;
-  }
+  @Autowired
+  private AddressResponseMapper addressResponseMapper;
 
   @Override
   public Address find(String zipCpode) {
