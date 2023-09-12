@@ -21,7 +21,7 @@ spec:
         - name: news
           image: 957817/droid-news:latest
           ports:
-            - containerPort: 8002
+            - containerPort: 9012
           env:
             - name: PORT
               valueFrom:
@@ -56,7 +56,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
-              port: 8002
+              port: 9012
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 20
@@ -64,7 +64,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
-              port: 8002
+              port: 9012
               scheme: HTTP
             initialDelaySeconds: 10
             periodSeconds: 30
@@ -85,9 +85,9 @@ metadata:
 spec: 
   type: LoadBalancer
   ports:
-    - port: 8002
+    - port: 9012
       protocol: TCP
-      targetPort: 8002
+      targetPort: 9012
   selector:
     app: news
 
