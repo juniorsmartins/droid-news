@@ -29,6 +29,20 @@ services:
     networks:
       - rede-droid
 
+  mongo7:
+    container_name: mongo7
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_DATABASE: droid_blue
+    volumes:
+      - data-mongo:/data/db
+    restart: always
+    networks:
+      - rede-droid
+      
+
   droid-news-users:
     container_name: users
     build:
@@ -79,16 +93,38 @@ services:
       dockerfile: ./droid-black/Dockerfile
     ports:
       - "8003:8003"
+    environment:
+      PORT: 8003
     restart: always
     networks:
       - rede-droid
 
+  droid-blue:
+    container_name: blue
+    build:
+      context: ./
+      dockerfile: ./droid-blue/Dockerfile
+    ports:
+      - "8004:8004"
+    environment:
+      PORT: 8004
+      DB_HOST: mongo7:27017
+      DB_DATABASE: droid_blue
+      DB_USERNAME: mongo
+      DB_PASSWORD: mongo
+    restart: always
+    networks:
+      - rede-droid
+    depends_on:
+      - mongo7
 
 volumes:
   data-mysql:
     name: data-mysql
   data-postgres:
     name: data-postgres
+  data-mongo:
+    name: data-mongo
 
 networks:
   rede-droid:
