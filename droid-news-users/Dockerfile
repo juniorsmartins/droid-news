@@ -22,7 +22,7 @@ RUN mkdir ./logs
 
 COPY --from=builder /droid-news/users/target/droid-news-users-0.0.1-SNAPSHOT.jar .
 
-ENV PORT 8001
+ENV PORT 9011
 EXPOSE $PORT
 
 CMD ["java", "-jar", "droid-news-users-0.0.1-SNAPSHOT.jar"]

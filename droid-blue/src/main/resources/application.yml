@@ -19,7 +19,7 @@ spring:
         all-namespaces: true
 
 server:
-  port: ${PORT:8004}
+  port: ${PORT:9014}
 
 management:
   endpoints:
