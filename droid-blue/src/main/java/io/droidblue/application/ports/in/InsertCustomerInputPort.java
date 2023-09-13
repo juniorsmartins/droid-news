@@ -6,3 +6,4 @@ public interface InsertCustomerInputPort {
   
   void insert(Customer customer, String zipCode);
 }
+
