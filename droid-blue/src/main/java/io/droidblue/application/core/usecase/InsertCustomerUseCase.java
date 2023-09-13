@@ -1,13 +1,13 @@
 package io.droidblue.application.core.usecase;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import io.droidblue.application.core.domain.Customer;
 import io.droidblue.application.ports.in.InsertCustomerInputPort;
 import io.droidblue.application.ports.out.FindAddressByZipCodeOutputPort;
 import io.droidblue.application.ports.out.InsertCustomerOutputPort;
 
-@Service
+@Component
 public final class InsertCustomerUseCase implements InsertCustomerInputPort {
 
   private final FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort;

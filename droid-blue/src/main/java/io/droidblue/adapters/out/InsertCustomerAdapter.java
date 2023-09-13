@@ -25,7 +25,7 @@ public class InsertCustomerAdapter implements InsertCustomerOutputPort {
     Optional.of(customer)
     .map(this.customerEntityMapper::toCustomerEntity)
     .map(this.customerRepository::save)
-    .orElseThrow(); // TODO - adicionar exceção personalizada
+    .orElseThrow(); 
   }
   
 }
