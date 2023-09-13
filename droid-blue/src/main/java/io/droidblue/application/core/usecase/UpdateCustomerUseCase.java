@@ -1,14 +1,11 @@
 package io.droidblue.application.core.usecase;
 
-import org.springframework.stereotype.Component;
-
 import io.droidblue.application.core.domain.Customer;
 import io.droidblue.application.ports.in.FindCustomerByIdInputPort;
 import io.droidblue.application.ports.in.UpdateCustomerInputPort;
 import io.droidblue.application.ports.out.FindAddressByZipCodeOutputPort;
 import io.droidblue.application.ports.out.UpdateCustomerOutputPort;
 
-@Component
 public class UpdateCustomerUseCase implements UpdateCustomerInputPort {
   
   private final FindCustomerByIdInputPort findCustomerByIdInputPort;
