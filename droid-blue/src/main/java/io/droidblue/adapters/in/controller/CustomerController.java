@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import io.droidblue.adapters.in.controller.request.CustomerRequest;
 import io.droidblue.adapters.in.controller.response.CustomerResponse;
 import io.droidblue.application.ports.in.FindCustomerByIdInputPort;
 import io.droidblue.application.ports.in.InsertCustomerInputPort;
+import io.droidblue.application.ports.in.UpdateCustomerInputPort;
 import jakarta.validation.Valid;
 
 @RestController
@@ -26,6 +28,9 @@ public class CustomerController {
 
   @Autowired
   private FindCustomerByIdInputPort findCustomerByIdInputPort;
+
+  @Autowired
+  private UpdateCustomerInputPort updateCustomerInputPort;
 
   @Autowired
   private CustomerMapper customerMapper;
@@ -50,6 +55,19 @@ public class CustomerController {
     return ResponseEntity
       .ok()
       .body(customerResponse);
+  }
+
+  @PutMapping(path = "/{id}")
+  public ResponseEntity<Void> update(@PathVariable(name = "id") final String id, 
+  @RequestBody @Valid CustomerRequest customerRequest) {
+
+    var customer = this.customerMapper.toCustomer(customerRequest);
+    customer.setId(id);
+    this.updateCustomerInputPort.update(customer, customerRequest.getZipCode());
+
+    return ResponseEntity
+      .noContent()
+      .build();
   }
 }
 

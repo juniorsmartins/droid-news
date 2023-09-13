@@ -4,11 +4,12 @@ import org.springframework.stereotype.Component;
 
 import io.droidblue.application.core.domain.Customer;
 import io.droidblue.application.ports.in.FindCustomerByIdInputPort;
+import io.droidblue.application.ports.in.UpdateCustomerInputPort;
 import io.droidblue.application.ports.out.FindAddressByZipCodeOutputPort;
 import io.droidblue.application.ports.out.UpdateCustomerOutputPort;
 
 @Component
-public class UpdateCustomerUseCase {
+public class UpdateCustomerUseCase implements UpdateCustomerInputPort {
   
   private final FindCustomerByIdInputPort findCustomerByIdInputPort;
 
@@ -24,6 +25,7 @@ public class UpdateCustomerUseCase {
     this.updateCustomerOutputPort = updateCustomerOutputPort;
   }
  
+  @Override
   public void update(Customer customer, String zipCode) {
 
     this.findCustomerByIdInputPort.find(customer.getId());
