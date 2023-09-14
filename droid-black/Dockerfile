@@ -25,7 +25,7 @@ RUN mkdir ./logs
 
 COPY --from=builder /$DROID_NEWS/$DROID_BLACK/target/droid-black-0.0.1-SNAPSHOT.jar .
 
-ENV PORT 8003
+ENV PORT 9013
 EXPOSE $PORT
 
 CMD ["java", "-jar", "droid-black-0.0.1-SNAPSHOT.jar"]

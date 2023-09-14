@@ -13,3 +13,17 @@ spec:
     path: /var/lib/mysql
     type: DirectoryOrCreate
 
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-mysql
+spec:
+  volumeName: pv-mysql
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  resources:
+    requests:
+      storage: 1Gi
+
