@@ -7,8 +7,6 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/droid_blue
-
-spring:
   application:
     name: blue
   cloud:
@@ -19,7 +17,7 @@ spring:
         all-namespaces: true
 
 server:
-  port: ${PORT:8004}
+  port: ${PORT:9014}
 
 management:
   endpoints:

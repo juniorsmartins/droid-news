@@ -2,8 +2,8 @@ package io.droidblue.application.ports.in;
 
 import io.droidblue.application.core.domain.Customer;
 
-public interface InsertCustomerInputPort {
+public interface FindCustomerByIdInputPort {
   
-  void insert(Customer customer, String zipCode);
+  Customer find(String id);
 }
 

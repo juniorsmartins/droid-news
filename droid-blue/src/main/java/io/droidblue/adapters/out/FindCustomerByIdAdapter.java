@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 import io.droidblue.adapters.out.repository.CustomerRepository;
 import io.droidblue.adapters.out.repository.mapper.CustomerEntityMapper;
 import io.droidblue.application.core.domain.Customer;
-import io.droidblue.application.ports.out.InsertCustomerOutputPort;
+import io.droidblue.application.ports.out.FindCustomerByIdOutputPort;
 
 @Component
-public class InsertCustomerAdapter implements InsertCustomerOutputPort {
+public class FindCustomerByIdAdapter implements FindCustomerByIdOutputPort {
 
   @Autowired
   private CustomerRepository customerRepository;
@@ -20,12 +20,10 @@ public class InsertCustomerAdapter implements InsertCustomerOutputPort {
   private CustomerEntityMapper customerEntityMapper;
 
   @Override
-  public void insert(Customer customer) {
+  public Optional<Customer> find(String id) {
 
-    Optional.of(customer)
-    .map(this.customerEntityMapper::toCustomerEntity)
-    .map(this.customerRepository::save)
-    .orElseThrow(); 
-  }
-  
+    var customerEntity = this.customerRepository.findById(id);
+    return customerEntity.map(entity -> this.customerEntityMapper.toCustomer(entity));
+  }  
 }
+

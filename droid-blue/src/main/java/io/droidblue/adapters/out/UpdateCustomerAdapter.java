@@ -1,17 +1,15 @@
 package io.droidblue.adapters.out;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import io.droidblue.adapters.out.repository.CustomerRepository;
 import io.droidblue.adapters.out.repository.mapper.CustomerEntityMapper;
 import io.droidblue.application.core.domain.Customer;
-import io.droidblue.application.ports.out.InsertCustomerOutputPort;
+import io.droidblue.application.ports.out.UpdateCustomerOutputPort;
 
 @Component
-public class InsertCustomerAdapter implements InsertCustomerOutputPort {
+public class UpdateCustomerAdapter implements UpdateCustomerOutputPort {
 
   @Autowired
   private CustomerRepository customerRepository;
@@ -20,12 +18,10 @@ public class InsertCustomerAdapter implements InsertCustomerOutputPort {
   private CustomerEntityMapper customerEntityMapper;
 
   @Override
-  public void insert(Customer customer) {
+  public void update(Customer customer) {
 
-    Optional.of(customer)
-    .map(this.customerEntityMapper::toCustomerEntity)
-    .map(this.customerRepository::save)
-    .orElseThrow(); 
+    var customerEntity = this.customerEntityMapper.toCustomerEntity(customer);
+    this.customerRepository.save(customerEntity);
   }
-  
 }
+

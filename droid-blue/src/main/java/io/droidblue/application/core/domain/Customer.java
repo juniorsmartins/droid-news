@@ -1,13 +1,9 @@
 package io.droidblue.application.core.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@Builder
-@AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = {"id"})

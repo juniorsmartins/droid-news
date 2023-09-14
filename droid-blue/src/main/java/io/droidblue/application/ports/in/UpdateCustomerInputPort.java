@@ -2,8 +2,8 @@ package io.droidblue.application.ports.in;
 
 import io.droidblue.application.core.domain.Customer;
 
-public interface InsertCustomerInputPort {
+public interface UpdateCustomerInputPort {
   
-  void insert(Customer customer, String zipCode);
+  void update(Customer customer, String zipCode);
 }
 

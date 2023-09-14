@@ -21,7 +21,7 @@ spec:
         - name: users
           image: 957817/droid-users:latest
           ports:
-            - containerPort: 8001
+            - containerPort: 9011
           env:
             - name: MY_POD_NAME
               valueFrom:
@@ -64,7 +64,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
-              port: 8001
+              port: 9011
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 20
@@ -72,7 +72,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
-              port: 8001
+              port: 9011
               scheme: HTTP
             initialDelaySeconds: 10
             periodSeconds: 30
@@ -93,9 +93,9 @@ metadata:
 spec:
   type: LoadBalancer
   ports: 
-    - port: 8001
+    - port: 9011
       protocol: TCP
-      targetPort: 8001
+      targetPort: 9011
   selector: 
     app: users
 
