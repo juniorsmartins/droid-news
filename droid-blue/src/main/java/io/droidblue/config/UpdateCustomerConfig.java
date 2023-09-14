@@ -15,7 +15,7 @@ public class UpdateCustomerConfig {
   public UpdateCustomerUseCase updateCustomerUseCase(FindCustomerByIdUseCase findCustomerByIdUseCase, 
                                                      FindAddressByZipCodeAdapter findAddressByZipCodeAdapter, 
                                                      UpdateCustomerAdapter updateCustomerAdapter) {
-    return new UpdateCustomerUseCase(findCustomerByIdUseCase, findAddressByZipCodeAdapter, updateCustomerAdapter)
+    return new UpdateCustomerUseCase(findCustomerByIdUseCase, findAddressByZipCodeAdapter, updateCustomerAdapter);
   }
 }
 
